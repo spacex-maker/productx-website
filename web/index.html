@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - Append Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Append
+  * Template URL: https://bootstrapmade.com/append-bootstrap-website-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+  <style>
+    .search-form {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.5s ease;
+    }
+    
+    .search-form.hidden {
+      opacity: 0;
+      transform: translateY(-20px);
+      pointer-events: none;
+    }
+    
+    .search-box {
+      position: relative;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      padding: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .search-box:hover,
+    .search-box:focus-within {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .search-box input[type="text"] {
+      width: calc(100% - 140px);
+      background: transparent;
+      border: none;
+      padding: 20px 30px;
+      font-size: 18px;
+      color: #fff;
+      outline: none;
+    }
+    
+    .search-box input[type="text"]::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .search-box input[type="submit"] {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 20px 40px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .search-box input[type="submit"]:hover {
+      background: #45a049;
+      transform: scale(1.05);
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(76, 175, 80, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+      }
+    }
+
+    .search-box:focus-within input[type="submit"] {
+      animation: pulse 2s infinite;
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+      .search-box input[type="text"] {
+        padding: 15px 20px;
+        font-size: 16px;
+      }
+      
+      .search-box input[type="submit"] {
+        padding: 15px 30px;
+      }
+    }
+
+    .logo {
+      text-decoration: none;
+      position: relative;
+    }
+
+    .logo .sitename {
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+      margin: 0;
+      position: relative;
+    }
+
+    .logo .highlight {
+      color: #4CAF50;
+      position: relative;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover .highlight {
+      text-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+      animation: glow 1.5s ease-in-out infinite alternate;
+    }
+
+    .logo::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #4CAF50, transparent);
+      transition: width 0.3s ease;
+    }
+
+    .logo:hover::after {
+      width: 100%;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px rgba(76, 175, 80, 0.5),
+                     0 0 10px rgba(76, 175, 80, 0.5),
+                     0 0 15px rgba(76, 175, 80, 0.5);
+      }
+      to {
+        text-shadow: 0 0 10px rgba(76, 175, 80, 0.8),
+                     0 0 20px rgba(76, 175, 80, 0.8),
+                     0 0 30px rgba(76, 175, 80, 0.8);
+      }
+    }
+
+    /* 暗色背景适配 */
+    .dark-background .logo .sitename {
+      color: #fff;
+    }
+
+    /* 亮色背景适配 */
+    .light-background .logo .sitename {
+      color: #333;
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+      .logo .sitename {
+        font-size: 28px;
+      }
+    }
+
+    /* 原有样式保持不变，添加地图相关样式 */
+    .continent {
+      fill: #2B3F6B;
+      stroke: #ffffff;
+      stroke-width: 0.5;
+      transition: fill 0.3s ease;
+    }
+
+    .continent:hover {
+      fill: #3B5998;
+    }
+
+    .world-map svg {
+      width: 100%;
+      height: 100%;
+      background: #1a1a1a;
+    }
+
+    /* 头部样式优化 */
+    .header {
+      padding: 15px 0;  /* 减小上下内边距 */
+    }
+
+    .header .logo {
+      margin-right: 25px;  /* 减小logo右边距 */
+    }
+
+    .header .navmenu {
+      margin: 0 10px;  /* 减小导航菜单边距 */
+    }
+
+    .header .navmenu ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .header .navmenu a {
+      padding: 8px 12px;  /* 减小导航项内边距 */
+    }
+
+    .header .btn-getstarted {
+      padding: 6px 20px;  /* 减小按钮内边距 */
+      margin-left: 15px;  /* 减小按钮左边距 */
+    }
+
+    /* 语言选择器样式优化 */
+    .language-selector {
+      margin-left: 15px;  /* 减小语言选择器左边距 */
+    }
+
+    .language-selector .btn {
+      padding: 6px 12px;  /* 减小按钮内边距 */
+    }
+
+    .language-selector .dropdown-menu {
+      min-width: 120px;  /* 减小下拉菜单宽度 */
+      padding: 5px 0;    /* 减小下拉菜单内边距 */
+    }
+
+    .language-selector .dropdown-item {
+      padding: 5px 15px;  /* 减小下拉项内边距 */
+    }
+
+    /* 在小屏幕上保持紧凑 */
+    @media (max-width: 1280px) {
+      .header {
+        padding: 12px 0;
+      }
+
+      .header .logo {
+        margin-right: 15px;
+      }
+
+      .header .navmenu a {
+        padding: 6px 10px;
+      }
+    }
+
+    /* 全局字体大小调整 */
+    body {
+      font-size: 14px;
+    }
+
+    /* 导航菜单字体调整 */
+    .header .navmenu a {
+      font-size: 14px;
+      padding: 6px 10px;
+    }
+
+    /* Logo大小调整 */
+    .header .logo .sitename {
+      font-size: 24px;
+    }
+
+    /* 按钮字体调整 */
+    .header .btn-getstarted {
+      font-size: 14px;
+      padding: 6px 16px;
+    }
+
+    /* 语言选择器调整 */
+    .language-selector .btn {
+      font-size: 14px;
+      padding: 6px 10px;
+    }
+
+    .language-selector .dropdown-item {
+      font-size: 14px;
+      padding: 4px 12px;
+    }
+
+    /* 标题字体大小调整 */
+    h1 {
+      font-size: 32px;
+    }
+
+    h2 {
+      font-size: 28px;
+    }
+
+    h3 {
+      font-size: 22px;
+    }
+
+    h4 {
+      font-size: 18px;
+    }
+
+    /* 服务卡片调整 */
+    .service-card {
+      padding: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .feature {
+      font-size: 13px;
+    }
+
+    .advantages li {
+      font-size: 13px;
+      padding: 6px 0 6px 20px;
+    }
+
+    /* 页脚调整 */
+    .footer {
+      font-size: 14px;
+    }
+
+    .footer h4 {
+      font-size: 16px;
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+      body {
+        font-size: 13px;
+      }
+
+      .header .logo .sitename {
+        font-size: 22px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      h4 {
+        font-size: 16px;
+      }
+    }
+
+    /* Pricing 模块样式优化 */
+    .pricing {
+      padding: 40px 0;  /* 减小整体内边距 */
+    }
+
+    .pricing .section-title {
+      margin-bottom: 30px;  /* 减小标题下方间距 */
+    }
+
+    .pricing .pricing-item {
+      padding: 25px 20px;  /* 减小卡片内边距 */
+      margin-bottom: 20px;
+    }
+
+    .pricing .pricing-item h3 {
+      font-size: 18px;  /* 减小标题字体 */
+      margin-bottom: 15px;
+    }
+
+    .pricing .pricing-item .icon {
+      width: 50px;      /* 减小图标尺寸 */
+      height: 50px;
+      margin: 15px auto;
+    }
+
+    .pricing .pricing-item .icon i {
+      font-size: 24px;  /* 减小图标字体 */
+    }
+
+    .pricing .pricing-item h4 {
+      font-size: 32px;  /* 减小价格字体 */
+      margin: 15px 0;
+    }
+
+    .pricing .pricing-item h4 sup {
+      font-size: 16px;
+    }
+
+    .pricing .pricing-item h4 span {
+      font-size: 14px;
+    }
+
+    .pricing .pricing-item ul {
+      padding: 15px 0;
+    }
+
+    .pricing .pricing-item ul li {
+      padding: 8px 0;   /* 减小列表项间距 */
+      font-size: 14px;  /* 减小列表字体 */
+    }
+
+    .pricing .pricing-item .buy-btn {
+      padding: 8px 25px;  /* 减小按钮内边距 */
+      font-size: 14px;    /* 减小按钮字体 */
+      margin-top: 15px;
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+      .pricing {
+        padding: 30px 0;
+      }
+
+      .pricing .pricing-item {
+        padding: 20px 15px;
+      }
+
+      .pricing .pricing-item h3 {
+        font-size: 16px;
+      }
+
+      .pricing .pricing-item h4 {
+        font-size: 28px;
+      }
+    }
+
+    /* 整体布局调整 */
+    .section {
+      padding: 30px 0;  /* 减小section间距 */
+    }
+
+    .section-title {
+      margin-bottom: 20px;  /* 减小标题下方间距 */
+      padding-bottom: 15px;
+    }
+
+    .section-title h2 {
+      font-size: 24px;  /* 减小标题字体 */
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    /* Pricing 模块样式优化 */
+    .pricing .pricing-item {
+      padding: 15px;  /* 减小卡片内边距 */
+      margin-bottom: 15px;
+    }
+
+    .pricing .pricing-item h3 {
+      font-size: 16px;  /* 减小标题字体 */
+      margin-bottom: 10px;
+    }
+
+    .pricing .pricing-item .icon {
+      width: 40px;      /* 减小图标尺寸 */
+      height: 40px;
+      margin: 10px auto;
+    }
+
+    .pricing .pricing-item .icon i {
+      font-size: 20px;  /* 减小图标字体 */
+    }
+
+    .pricing .pricing-item h4 {
+      font-size: 24px;  /* 减小价格字体 */
+      margin: 10px 0;
+    }
+
+    .pricing .pricing-item h4 sup {
+      font-size: 14px;
+    }
+
+    .pricing .pricing-item h4 span {
+      font-size: 12px;
+    }
+
+    .pricing .pricing-item ul {
+      padding: 10px 0;
+      margin: 0;
+    }
+
+    .pricing .pricing-item ul li {
+      padding: 6px 0;   /* 减小列表项间距 */
+      font-size: 13px;  /* 减小列表字体 */
+    }
+
+    .pricing .pricing-item .buy-btn {
+      padding: 6px 20px;  /* 减小按钮内边距 */
+      font-size: 13px;    /* 减小按钮字体 */
+      margin-top: 10px;
+    }
+
+    /* 卡片间距调整 */
+    .row.g-4 {
+      --bs-gutter-x: 15px;  /* 减小列间距 */
+      --bs-gutter-y: 15px;  /* 减小行间距 */
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+      .section {
+        padding: 25px 0;
+      }
+
+      .pricing .pricing-item {
+        padding: 12px;
+      }
+
+      .pricing .pricing-item h3 {
+        font-size: 15px;
+      }
+
+      .pricing .pricing-item h4 {
+        font-size: 22px;
+      }
+    }
+
+    /* 会员套餐模块样式 */
+    .membership-plans {
+      padding: 20px 0;
+    }
+
+    .plan-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px;
+      position: relative;
+      transition: all 0.4s ease;
+      border: 2px solid transparent;
+      overflow: hidden;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-10px);
+      border-color: #4CAF50;
+      box-shadow: 0 20px 40px rgba(76, 175, 80, 0.15);
+    }
+
+    .plan-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(76, 175, 80, 0.05), rgba(76, 175, 80, 0.1));
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .plan-card:hover::before {
+      opacity: 1;
+    }
+
+    .plan-header {
+      text-align: center;
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    .plan-name {
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .plan-price {
+      font-size: 42px;
+      font-weight: 700;
+      color: #4CAF50;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .plan-price .currency {
+      font-size: 24px;
+      margin-right: 5px;
+    }
+
+    .plan-price .period {
+      font-size: 16px;
+      color: #666;
+      margin-left: 5px;
+    }
+
+    .plan-features {
+      margin: 25px 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      color: #666;
+      font-size: 15px;
+    }
+
+    .feature-item i {
+      color: #4CAF50;
+      margin-right: 10px;
+      font-size: 18px;
+    }
+
+    .plan-cta {
+      text-align: center;
+    }
+
+    .plan-button {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 30px;
+      background: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid #4CAF50;
+    }
+
+    .plan-button:hover {
+      background: transparent;
+      color: #4CAF50;
+    }
+
+    /* 热门标签 */
+    .popular-tag {
+      position: absolute;
+      top: 20px;
+      right: -35px;
+      background: #4CAF50;
+      color: #fff;
+      padding: 5px 40px;
+      transform: rotate(45deg);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* 动效 */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .plan-card.popular {
+      animation: pulse 2s infinite;
+    }
+
+    .member-benefits {
+      background: #f8f9fa;
+      padding: 60px 0;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .benefit-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .benefit-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #4CAF50, #81C784);
+      color: #fff;
+      font-size: 32px;
+    }
+
+    .benefit-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .benefit-description {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .benefit-tag {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #4CAF50;
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* 导航下拉菜单样式优化 */
+    .header .navmenu .dropdown-menu {
+      background: #fff;
+      border: none;
+      border-radius: 8px;  /* 减小圆角 */
+      box-shadow: 0 3px 15px rgba(0,0,0,0.08);  /* 减小阴影 */
+      padding: 6px 0;
+      min-width: 180px;  /* 减小宽度 */
+      margin-top: 5px;  /* 减小上边距 */
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-5px);
+      transition: all 0.25s ease;
+    }
+
+    .header .navmenu .dropdown-menu li {
+      padding: 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .header .navmenu .dropdown-menu a {
+      padding: 6px 15px;
+      color: #333;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      transition: all 0.25s ease;
+    }
+
+    /* 添加图标 */
+    .header .navmenu .dropdown-menu a i {
+      margin-right: 8px;  /* 减小图标右边距 */
+      font-size: 14px;
+      color: #4CAF50;
+    }
+
+    /* 下拉菜单标题 */
+    .dropdown-header {
+      color: #666;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 6px 15px;
+      background: #f8f9fa;
+      margin-bottom: 3px;
+    }
+
+    /* 下拉菜单分隔线 */
+    .dropdown-divider {
+      margin: 3px 0;
+      border-top: 1px solid #eee;
+    }
+
+    /* 悬停效果优化 */
+    .header .navmenu .dropdown-menu a:hover {
+      background: #f8f9fa;
+      color: #4CAF50;
+      padding-left: 18px;  /* 减小悬停时的缩进 */
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+      .header .navmenu .dropdown-menu {
+        min-width: 160px;
+      }
+
+      .header .navmenu .dropdown-menu a {
+        padding: 5px 12px;
+        font-size: 12px;
+      }
+
+      .dropdown-header {
+        font-size: 10px;
+        padding: 5px 12px;
+      }
+    }
+  </style>
+
+  <!-- 在 head 中添加 Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- 在 head 中添加 Cesium 相关资源 -->
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.95/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.95/Build/Cesium/Cesium.js"></script>
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename">Pro<span class="highlight">TX</span></h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero" class="active" data-i18n="home"></a></li>
+          <li><a href="index.html#about" data-i18n="aboutUs"></a></li>
+          <li class="dropdown">
+            <a href="#"><span data-i18n="categories">商品分类</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul class="dropdown-menu">
+              <div class="dropdown-header">热门分类</div>
+              <li><a href="#"><i class="bi bi-phone"></i><span data-i18n="electronics">电子产品</span></a></li>
+              <li><a href="#"><i class="bi bi-handbag"></i><span data-i18n="fashion">服饰箱包</span></a></li>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-header">家居生活</div>
+              <li><a href="#"><i class="bi bi-tv"></i><span data-i18n="homeAppliances">家用电器</span></a></li>
+              <li><a href="#"><i class="bi bi-house"></i><span data-i18n="furniture">家具家居</span></a></li>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-header">文体娱乐</div>
+              <li><a href="#"><i class="bi bi-book"></i><span data-i18n="books">图书文具</span></a></li>
+              <li><a href="#"><i class="bi bi-bicycle"></i><span data-i18n="sports">运动户外</span></a></li>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-header">精品收藏</div>
+              <li><a href="#"><i class="bi bi-gem"></i><span data-i18n="luxury">奢侈品</span></a></li>
+              <li><a href="#"><i class="bi bi-trophy"></i><span data-i18n="collectibles">收藏品</span></a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#portfolio" data-i18n="portfolio"></a></li>
+          <li class="dropdown">
+            <a href="#"><span data-i18n="services">增值服务</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul class="dropdown-menu">
+              <div class="dropdown-header">交易服务</div>
+              <li><a href="#"><i class="bi bi-shield-check"></i><span data-i18n="authentication">鉴定服务</span></a></li>
+              <li><a href="#"><i class="bi bi-recycle"></i><span data-i18n="recycling">回收服务</span></a></li>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-header">增值服务</div>
+              <li><a href="#"><i class="bi bi-tools"></i><span data-i18n="maintenance">维修保养</span></a></li>
+              <li><a href="#"><i class="bi bi-truck"></i><span data-i18n="logistics">物流配送</span></a></li>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-header">金融服务</div>
+              <li><a href="#"><i class="bi bi-umbrella"></i><span data-i18n="insurance">交易保险</span></a></li>
+              <li><a href="#"><i class="bi bi-credit-card"></i><span data-i18n="financing">分期付款</span></a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#"><span data-i18n="community">社区中心</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul class="dropdown-menu">
+              <div class="dropdown-header">社区交流</div>
+              <li><a href="#"><i class="bi bi-chat-dots"></i><span data-i18n="forum">交流论坛</span></a></li>
+              <li><a href="#"><i class="bi bi-journal-text"></i><span data-i18n="blog">经验分享</span></a></li>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-header">新手帮助</div>
+              <li><a href="#"><i class="bi bi-book"></i><span data-i18n="guide">新手指南</span></a></li>
+              <li><a href="#"><i class="bi bi-search"></i><span data-i18n="evaluation">商品测评</span></a></li>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-header">成功案例</div>
+              <li><a href="#"><i class="bi bi-trophy"></i><span data-i18n="stories">成功案例</span></a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#"><span data-i18n="help">帮助中心</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul class="dropdown-menu">
+              <div class="dropdown-header">常见问题</div>
+              <li><a href="#"><i class="bi bi-question-circle"></i><span data-i18n="faq">常见问题</span></a></li>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-header">交易指南</div>
+              <li><a href="#"><i class="bi bi-cart-check"></i><span data-i18n="buyerGuide">买家指南</span></a></li>
+              <li><a href="#"><i class="bi bi-shop"></i><span data-i18n="sellerGuide">卖家指南</span></a></li>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-header">平台规则</div>
+              <li><a href="#"><i class="bi bi-file-text"></i><span data-i18n="rules">平台规则</span></a></li>
+              <li><a href="#"><i class="bi bi-shield-check"></i><span data-i18n="security">安全保障</span></a></li>
+              <li><a href="#"><i class="bi bi-chat-left-dots"></i><span data-i18n="feedback">意见反馈</span></a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#contact" data-i18n="contact"></a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="auth-buttons">
+        <a href="login.html" class="btn-auth btn-login" data-i18n="login">登录</a>
+        <a href="login.html?tab=register" class="btn-auth btn-register" data-i18n="register">注册</a>
+      </div>
+
+      <!-- 在 header 中添加语言切换菜单 -->
+      <div class="language-selector dropdown">
+        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          <i class="bi bi-globe"></i>
+          <span class="current-lang"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#" data-lang="ar">العربية</a></li>
+          <li><a class="dropdown-item" href="#" data-lang="de">Deutsch</a></li>
+          <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
+          <li><a class="dropdown-item" href="#" data-lang="es">Español</a></li>
+          <li><a class="dropdown-item" href="#" data-lang="fr">Français</a></li>
+          <li><a class="dropdown-item" href="#" data-lang="it">Italiano</a></li>
+          <li><a class="dropdown-item" href="#" data-lang="ja">日本語</a></li>
+          <li><a class="dropdown-item" href="#" data-lang="ko">한국어</a></li>
+          <li><a class="dropdown-item" href="#" data-lang="ru">Русский</a></li>
+          <li><a class="dropdown-item" href="#" data-lang="zh">中文</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 text-center mb-5">
+            <h2 data-aos="fade-up" data-aos-delay="100" data-i18n="heroTitle"></h2>
+            <p data-aos="fade-up" data-aos-delay="200" data-i18n="heroDescription"></p>
+          </div>
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
+            <form action="#" method="post" class="search-form">
+              <div class="search-box">
+                <input type="text" name="search" placeholder="搜索二手商品..." autocomplete="off">
+                <input type="submit" value="搜索">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- Clients Section -->
+    <section id="clients" class="clients section">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4">
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Clients Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section light-background">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-xl-center gy-5">
+
+          <div class="col-xl-5 content">
+            <div class="section-header" data-aos="fade-right">
+              <div class="title-wrapper">
+                <h3 class="subtitle" data-i18n="aboutSubtitle"></h3>
+                <h2 class="title" data-i18n="aboutTitle"></h2>
+              </div>
+              <div class="divider">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <p class="description" data-i18n="aboutDescription"></p>
+              <a href="#" class="read-more">
+                <span data-i18n="learnMore"></span>
+                <svg class="arrow" viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-xl-7">
+            <div class="row gy-4 icon-boxes">
+              <div class="col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                <div class="feature-card">
+                  <div class="icon-wrapper">
+                    <i class="bi bi-globe"></i>
+                    <div class="glow"></div>
+                  </div>
+                  <h3 data-i18n="globalLogisticsService"></h3>
+                  <p data-i18n="professionalLogisticsSolution"></p>
+                </div>
+              </div>
+
+              <div class="col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                <div class="feature-card">
+                  <div class="icon-wrapper">
+                    <i class="bi bi-shield-check"></i>
+                    <div class="glow"></div>
+                  </div>
+                  <h3 data-i18n="qualityAssurance"></h3>
+                  <p data-i18n="reliableProducts"></p>
+                </div>
+              </div>
+
+              <div class="col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                <div class="feature-card">
+                  <div class="icon-wrapper">
+                    <i class="bi bi-truck"></i>
+                    <div class="glow"></div>
+                  </div>
+                  <h3 data-i18n="expressDelivery"></h3>
+                  <p data-i18n="doorToDoorService"></p>
+                </div>
+              </div>
+
+              <div class="col-md-6" data-aos="zoom-in" data-aos-delay="500">
+                <div class="feature-card">
+                  <div class="icon-wrapper">
+                    <i class="bi bi-phone"></i>
+                    <div class="glow"></div>
+                  </div>
+                  <h3 data-i18n="smartTradeExperience"></h3>
+                  <p data-i18n="seamlessShoppingExperience"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <style>
+        .section-header {
+          position: relative;
+          margin-bottom: 40px;
+        }
+
+        .title-wrapper {
+          margin-bottom: 30px;
+        }
+
+        .subtitle {
+          color: #4CAF50;
+          font-size: 18px;
+          font-weight: 600;
+          margin-bottom: 15px;
+          position: relative;
+          display: inline-block;
+          padding-left: 40px;
+        }
+
+        .subtitle::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          width: 30px;
+          height: 2px;
+          background: #4CAF50;
+          transform: translateY(-50%);
+        }
+
+        .title {
+          font-size: 42px;
+          font-weight: 700;
+          line-height: 1.2;
+          margin-bottom: 20px;
+          background: linear-gradient(45deg, #333, #4CAF50);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          position: relative;
+        }
+
+        .divider {
+          display: flex;
+          gap: 8px;
+          margin-bottom: 25px;
+        }
+
+        .divider span {
+          height: 3px;
+          border-radius: 2px;
+          background: #4CAF50;
+        }
+
+        .divider span:nth-child(1) {
+          width: 45px;
+        }
+
+        .divider span:nth-child(2) {
+          width: 25px;
+        }
+
+        .divider span:nth-child(3) {
+          width: 15px;
+        }
+
+        .description {
+          font-size: 16px;
+          line-height: 1.8;
+          color: #666;
+          margin-bottom: 30px;
+        }
+
+        .read-more {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          color: #4CAF50;
+          font-weight: 600;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          position: relative;
+          padding: 10px 0;
+        }
+
+        .read-more .arrow {
+          width: 24px;
+          height: 24px;
+          stroke: currentColor;
+          stroke-width: 2;
+          fill: none;
+          transition: transform 0.3s ease;
+        }
+
+        .read-more:hover .arrow {
+          transform: translateX(5px);
+        }
+
+        .read-more::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: #4CAF50;
+          transition: width 0.3s ease;
+        }
+
+        .read-more:hover::after {
+          width: 100%;
+        }
+
+        .feature-card {
+          background: white;
+          padding: 40px 30px;
+          border-radius: 20px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+          transition: all 0.4s ease;
+          position: relative;
+          overflow: hidden;
+          border: 1px solid rgba(0,0,0,0.05);
+          height: 100%;
+        }
+
+        .feature-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(45deg, rgba(76,175,80,0.1), rgba(76,175,80,0));
+          opacity: 0;
+          transition: all 0.4s ease;
+        }
+
+        .feature-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .feature-card:hover::before {
+          opacity: 1;
+        }
+
+        .icon-wrapper {
+          position: relative;
+          width: 70px;
+          height: 70px;
+          background: rgba(76,175,80,0.1);
+          border-radius: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 25px;
+          transition: all 0.4s ease;
+        }
+
+        .icon-wrapper i {
+          font-size: 32px;
+          color: #4CAF50;
+          position: relative;
+          z-index: 1;
+        }
+
+        .glow {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: #4CAF50;
+          border-radius: 20px;
+          filter: blur(20px);
+          opacity: 0;
+          transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .icon-wrapper {
+          background: #4CAF50;
+        }
+
+        .feature-card:hover .icon-wrapper i {
+          color: white;
+        }
+
+        .feature-card:hover .glow {
+          opacity: 0.3;
+        }
+
+        .feature-card h3 {
+          font-size: 22px;
+          font-weight: 600;
+          margin-bottom: 15px;
+          color: #333;
+        }
+
+        .feature-card p {
+          font-size: 15px;
+          line-height: 1.7;
+          color: #666;
+          margin: 0;
+        }
+
+        @media (max-width: 768px) {
+          .title {
+            font-size: 32px;
+          }
+          
+          .feature-card {
+            padding: 30px 20px;
+          }
+        }
+      </style>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats section dark-background">
+
+      <img src="assets/img/stats-bg.jpg" alt="" data-aos="fade-in">
+
+      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="10000" data-purecounter-duration="1" class="purecounter"></span>
+              <p data-i18n="successfulTransactions"></p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="5000" data-purecounter-duration="1" class="purecounter"></span>
+              <p data-i18n="registeredUsers"></p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="15000" data-purecounter-duration="1" class="purecounter"></span>
+              <p data-i18n="carbonReduction"></p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="98" data-purecounter-duration="1" class="purecounter"></span>
+              <p data-i18n="userSatisfactionRate"></p>
+            </div>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Stats Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2 data-i18n="ourAdvantages"></h2>
+        <p data-i18n="greenLiving"></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item d-flex">
+              <div class="icon flex-shrink-0"><i class="bi bi-recycle"></i></div>
+              <div>
+                <h4 class="title" data-i18n="environmentalProtection"></h4>
+                <p class="description" data-i18n="greenLiving"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item d-flex">
+              <div class="icon flex-shrink-0"><i class="bi bi-shield-check"></i></div>
+              <div>
+                <h4 class="title" data-i18n="qualityAssurance"></h4>
+                <p class="description" data-i18n="reliableProducts"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item d-flex">
+              <div class="icon flex-shrink-0"><i class="bi bi-cash-coin"></i></div>
+              <div>
+                <h4 class="title" data-i18n="discountPrices"></h4>
+                <p class="description" data-i18n="extraIncome"></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2 data-i18n="features"></h2>
+        <p data-i18n="featuresDescription"></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-lg-5 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+            <h3 data-i18n="corporisTemporibusMaioresProvident"></h3>
+            <p data-i18n="featuresDescription"></p>
+            <a href="#" class="btn btn-get-started" data-i18n="getStarted"></a>
+          </div>
+          <div class="col-lg-7 order-1 order-lg-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+            <div class="image-stack">
+              <img src="assets/img/features-light-1.jpg" alt="" class="stack-front">
+              <img src="assets/img/features-light-2.jpg" alt="" class="stack-back">
+            </div>
+          </div>
+        </div><!-- Features Item -->
+
+        <div class="row gy-4 align-items-stretch justify-content-between features-item ">
+          <div class="col-lg-6 d-flex align-items-center features-img-bg" data-aos="zoom-out">
+            <img src="assets/img/features-light-3.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-5 d-flex justify-content-center flex-column" data-aos="fade-up">
+            <h3 data-i18n="suntConsequaturAdUtEstNulla"></h3>
+            <p data-i18n="featuresDescription"></p>
+            <ul>
+              <li><i class="bi bi-check"></i> <span data-i18n="ullamcoLaborisNisiUtAliquipExEaCommodoConsequat"></span></li>
+              <li><i class="bi bi-check"></i><span data-i18n="duisAuteIreDolorInReprehenderitInVoluptateVelit"></span></li>
+              <li><i class="bi bi-check"></i> <span data-i18n="facilisUtEtVoluptatemAperiamAutemSolutaAdFugiat"></span>.</li>
+            </ul>
+            <a href="#" class="btn btn-get-started align-self-start" data-i18n="getStarted"></a>
+          </div>
+        </div><!-- Features Item -->
+
+      </div>
+
+    </section><!-- /Features Section -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2 data-i18n="portfolio"></h2>
+        <p data-i18n="portfolioDescription"></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active" data-i18n="all"></li>
+            <li data-filter=".filter-app" data-i18n="app"></li>
+            <li data-filter=".filter-product" data-i18n="card"></li>
+            <li data-filter=".filter-branding" data-i18n="web"></li>
+          </ul><!-- End Portfolio Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4 data-i18n="app1"></h4>
+                <p data-i18n="loremIpsumDolorSit"></p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4 data-i18n="product1"></h4>
+                <p data-i18n="loremIpsumDolorSit"></p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4 data-i18n="branding1"></h4>
+                <p data-i18n="loremIpsumDolorSit"></p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4 data-i18n="app2"></h4>
+                <p data-i18n="loremIpsumDolorSit"></p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4 data-i18n="product2"></h4>
+                <p data-i18n="loremIpsumDolorSit"></p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4 data-i18n="branding2"></h4>
+                <p data-i18n="loremIpsumDolorSit"></p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4 data-i18n="app3"></h4>
+                <p data-i18n="loremIpsumDolorSit"></p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4 data-i18n="product3"></h4>
+                <p data-i18n="loremIpsumDolorSit"></p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4 data-i18n="branding3"></h4>
+                <p data-i18n="loremIpsumDolorSit"></p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+          </div><!-- End Portfolio Container -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2 data-i18n="membershipPlans">会员方案</h2>
+        <p data-i18n="membershipDescription">选择最适合您的会员方案，享受更多优质服务</p>
+      </div>
+
+      <div class="container membership-plans">
+        <div class="row g-4">
+          
+          <!-- 月度会员 -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="plan-card">
+              <div class="plan-header">
+                <h3 class="plan-name" data-i18n="monthlyMember">月度会员</h3>
+                <div class="plan-price">
+                  <span class="currency">¥</span>29
+                  <span class="period">/月</span>
+                </div>
+              </div>
+              <div class="plan-features">
+                <div class="feature-item">
+                  <i class="bi bi-check-circle"></i>
+                  <span data-i18n="basicFeatures">所有基础功能</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle"></i>
+                  <span data-i18n="prioritySupport">优先客服支持</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle"></i>
+                  <span data-i18n="noAds">无广告浏览</span>
+                </div>
+              </div>
+              <div class="plan-cta">
+                <a href="#" class="plan-button" data-i18n="subscribe">立即开通</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 季度会员 -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="plan-card popular">
+              <div class="popular-tag" data-i18n="mostPopular">最受欢迎</div>
+              <div class="plan-header">
+                <h3 class="plan-name" data-i18n="quarterlyMember">季度会员</h3>
+                <div class="plan-price">
+                  <span class="currency">¥</span>79
+                  <span class="period">/季</span>
+                </div>
+              </div>
+              <div class="plan-features">
+                <div class="feature-item">
+                  <i class="bi bi-check-circle"></i>
+                  <span data-i18n="allMonthlyFeatures">月度会员所有功能</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle"></i>
+                  <span data-i18n="vipBadge">专属VIP标识</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle"></i>
+                  <span data-i18n="extraDiscount">额外9折优惠</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle"></i>
+                  <span data-i18n="priorityListing">优先展示商品</span>
+                </div>
+              </div>
+              <div class="plan-cta">
+                <a href="#" class="plan-button" data-i18n="subscribe">立即开通</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 年度会员 -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="plan-card">
+              <div class="plan-header">
+                <h3 class="plan-name" data-i18n="yearlyMember">年度会员</h3>
+                <div class="plan-price">
+                  <span class="currency">¥</span>299
+                  <span class="period">/年</span>
+                </div>
+              </div>
+              <div class="plan-features">
+                <div class="feature-item">
+                  <i class="bi bi-check-circle"></i>
+                  <span data-i18n="allQuarterlyFeatures">季度会员所有功能</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle"></i>
+                  <span data-i18n="exclusiveEvents">专属活动特权</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle"></i>
+                  <span data-i18n="maxDiscount">最高8折优惠</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle"></i>
+                  <span data-i18n="freeShipping">免运费特权</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle"></i>
+                  <span data-i18n="birthdayGift">生日特别礼遇</span>
+                </div>
+              </div>
+              <div class="plan-cta">
+                <a href="#" class="plan-button" data-i18n="subscribe">立即开通</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 会员套餐模块后添加会员特权模块 -->
+    <section id="member-benefits" class="member-benefits section">
+      <style>
+        .member-benefits {
+          background: #f8f9fa;
+          padding: 60px 0;
+        }
+
+        .benefits-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 30px;
+          margin-top: 40px;
+        }
+
+        .benefit-card {
+          background: #fff;
+          border-radius: 15px;
+          padding: 30px;
+          text-align: center;
+          transition: all 0.4s ease;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .benefit-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .benefit-icon {
+          width: 80px;
+          height: 80px;
+          margin: 0 auto 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background: linear-gradient(45deg, #4CAF50, #81C784);
+          color: #fff;
+          font-size: 32px;
+        }
+
+        .benefit-title {
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 15px;
+          color: #333;
+        }
+
+        .benefit-description {
+          font-size: 14px;
+          color: #666;
+          line-height: 1.6;
+        }
+
+        .benefit-tag {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          background: #4CAF50;
+          color: #fff;
+          padding: 4px 12px;
+          border-radius: 20px;
+          font-size: 12px;
+          font-weight: 500;
+        }
+      </style>
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2 data-i18n="memberBenefits">会员特权</h2>
+        <p data-i18n="memberBenefitsDescription">解锁更多专属权益，享受优质购物体验</p>
+      </div>
+
+      <div class="container">
+        <div class="benefits-grid">
+          <!-- 专属折扣 -->
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="benefit-icon">
+              <i class="bi bi-tag"></i>
+            </div>
+            <h3 class="benefit-title" data-i18n="exclusiveDiscounts">专属折扣</h3>
+            <p class="benefit-description" data-i18n="discountDescription">享受会员专属价格，最高可享8折优惠</p>
+            <span class="benefit-tag" data-i18n="allMembers">所有会员</span>
+          </div>
+
+          <!-- 免运费特权 -->
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="benefit-icon">
+              <i class="bi bi-truck"></i>
+            </div>
+            <h3 class="benefit-title" data-i18n="freeShipping">免运费特权</h3>
+            <p class="benefit-description" data-i18n="shippingDescription">年度会员可享受全场商品免运费服务</p>
+            <span class="benefit-tag" data-i18n="yearlyMemberOnly">年度会员专享</span>
+          </div>
+
+          <!-- 优先客服 -->
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="benefit-icon">
+              <i class="bi bi-headset"></i>
+            </div>
+            <h3 class="benefit-title" data-i18n="prioritySupport">优先客服</h3>
+            <p class="benefit-description" data-i18n="supportDescription">专属客服通道，优先处理您的需求</p>
+            <span class="benefit-tag" data-i18n="allMembers">所有会员</span>
+          </div>
+
+          <!-- 生日特权 -->
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="benefit-icon">
+              <i class="bi bi-gift"></i>
+            </div>
+            <h3 class="benefit-title" data-i18n="birthdayPrivileges">生日特权</h3>
+            <p class="benefit-description" data-i18n="birthdayDescription">生日当月享双倍积分和专属礼遇</p>
+            <span class="benefit-tag" data-i18n="quarterlyUp">季度会员及以上</span>
+          </div>
+
+          <!-- 积分加速 -->
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="benefit-icon">
+              <i class="bi bi-lightning"></i>
+            </div>
+            <h3 class="benefit-title" data-i18n="pointsBoost">积分加速</h3>
+            <p class="benefit-description" data-i18n="pointsDescription">购物可享受最高3倍积分加速</p>
+            <span class="benefit-tag" data-i18n="membershipBased">按会员等级</span>
+          </div>
+
+          <!-- 专属活动 -->
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="600">
+            <div class="benefit-icon">
+              <i class="bi bi-star"></i>
+            </div>
+            <h3 class="benefit-title" data-i18n="exclusiveEvents">专属活动</h3>
+            <p class="benefit-description" data-i18n="eventsDescription">优先参与平台特卖会和主题活动</p>
+            <span class="benefit-tag" data-i18n="yearlyMemberOnly">年度会员专享</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer" class="footer position-relative light-background">
+
+      <div class="container footer-top">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-about">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <span class="sitename">Pro<span class="highlight">TX</span></span>
+            </a>
+            <p data-i18n="footerDescription"></p>
+            <div class="social-links d-flex mt-4">
+              <a href=""><i class="bi bi-twitter-x"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4 data-i18n="usefulLinks"></h4>
+            <ul>
+              <li><a href="#" data-i18n="home"></a></li>
+              <li><a href="#" data-i18n="aboutUs"></a></li>
+              <li><a href="#" data-i18n="services"></a></li>
+              <li><a href="#" data-i18n="termsOfService"></a></li>
+              <li><a href="#" data-i18n="privacyPolicy"></a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4 data-i18n="ourServices"></h4>
+            <ul>
+              <li><a href="#" data-i18n="webDesign"></a></li>
+              <li><a href="#" data-i18n="webDevelopment"></a></li>
+              <li><a href="#" data-i18n="productManagement"></a></li>
+              <li><a href="#" data-i18n="marketing"></a></li>
+              <li><a href="#" data-i18n="graphicDesign"></a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4 data-i18n="contactUs"></h4>
+            <p data-i18n="addressLine1"></p>
+            <p data-i18n="addressLine2"></p>
+            <p data-i18n="country"></p>
+            <p class="mt-4"><strong data-i18n="phone"></strong> <span data-i18n="phoneNumber"></span></p>
+            <p><strong data-i18n="email"></strong> <span data-i18n="emailAddress"></span></p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container copyright text-center mt-4">
+        <p><span data-i18n="copyright"></span> <strong class="sitename">Pro<span class="highlight">TX</span></strong> <span data-i18n="allRightsReserved"></span></p>
+      </div>
+
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script>
+      // 内联翻译数据
+      window.translations = {
+        ja: {
+          "globalLogisticsService": "国際物流サービス",
+          // ... 其他日语翻译
+        },
+        en: {
+          "globalLogisticsService": "Global Logistics Service",
+          // ... 其他英语翻译
+        },
+        de: {
+          "globalLogisticsService": "Internationale Logistikdienstleistungen",
+          // ... 其他德语翻译
+        }
+      };
+    </script>
+    <script src="assets/js/i18n.js"></script>
+
+    <!-- 添加滚动控制脚本 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchForm = document.querySelector('.search-form');
+      let lastScrollTop = 0;
+      let scrollTimeout;
+
+      window.addEventListener('scroll', function() {
+        clearTimeout(scrollTimeout);
+        
+        scrollTimeout = setTimeout(function() {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          
+          if (scrollTop > lastScrollTop && scrollTop > 200) {
+            // 向下滚动
+            searchForm.classList.add('hidden');
+          } else {
+            // 向上滚动或在顶部
+            searchForm.classList.remove('hidden');
+          }
+          
+          lastScrollTop = scrollTop;
+        }, 50);
+      });
+    </script>
+
+  </body>
+
+</html>
