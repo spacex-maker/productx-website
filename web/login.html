@@ -5,266 +5,177 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>登录/注册 - ProTX</title>
-  <!-- 引入相同的CSS文件 -->
+
+  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Main CSS Files -->
   <link href="assets/css/main.css" rel="stylesheet">
-
-  <style>
-    /* 头部样式 */
-    .header {
-      background: rgba(255, 255, 255, 0.95);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .header .logo .sitename {
-      font-size: 24px;
-      font-weight: 700;
-      color: #333;
-    }
-
-    .header .logo .highlight {
-      color: #4CAF50;
-    }
-
-    /* 导航菜单样式 */
-    .header .navmenu a {
-      font-size: 14px;
-      padding: 6px 10px;
-    }
-
-    /* 语言选择器样式 */
-    .language-selector {
-      margin-left: 15px;
-    }
-
-    .language-selector .btn {
-      padding: 6px 12px;
-      font-size: 14px;
-    }
-
-    .auth-section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 40px 0;
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    }
-
-    .auth-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .auth-wrapper {
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 5px 30px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
-
-    .auth-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 600px;
-    }
-
-    .auth-image {
-      background: linear-gradient(45deg, #4CAF50, #81C784);
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .auth-image::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('assets/img/auth-bg.jpg') center/cover;
-      opacity: 0.1;
-    }
-
-    .auth-image h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-      position: relative;
-    }
-
-    .auth-image p {
-      font-size: 16px;
-      line-height: 1.6;
-      position: relative;
-    }
-
-    .auth-forms {
-      padding: 40px;
-    }
-
-    .auth-tab-buttons {
-      display: flex;
-      margin-bottom: 30px;
-      border-bottom: 2px solid #eee;
-    }
-
-    .auth-tab-button {
-      padding: 10px 20px;
-      font-size: 16px;
-      font-weight: 600;
-      color: #666;
-      border: none;
-      background: none;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .auth-tab-button.active {
-      color: #4CAF50;
-    }
-
-    .auth-tab-button.active::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: #4CAF50;
-    }
-
-    .auth-form {
-      display: none;
-    }
-
-    .auth-form.active {
-      display: block;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 500;
-      color: #333;
-    }
-
-    .form-control {
-      width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 14px;
-      transition: all 0.3s ease;
-    }
-
-    .form-control:focus {
-      border-color: #4CAF50;
-      box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
-    }
-
-    .auth-button {
-      width: 100%;
-      padding: 12px;
-      background: #4CAF50;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .auth-button:hover {
-      background: #43A047;
-    }
-
-    .auth-links {
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    .auth-links a {
-      color: #4CAF50;
-      text-decoration: none;
-    }
-
-    .social-login {
-      margin-top: 30px;
-      text-align: center;
-    }
-
-    .social-login p {
-      color: #666;
-      margin-bottom: 15px;
-    }
-
-    .social-buttons {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-    }
-
-    .social-button {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #ddd;
-      color: #666;
-      transition: all 0.3s ease;
-    }
-
-    .social-button:hover {
-      background: #f5f5f5;
-      color: #4CAF50;
-      border-color: #4CAF50;
-    }
-
-    @media (max-width: 768px) {
-      .auth-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .auth-image {
-        display: none;
-      }
-    }
-
-    /* 全局字体设置 */
-    body {
-      font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    }
-
-    /* 标题字体 */
-    h1, h2, h3, h4, h5, h6, .sitename {
-      font-family: 'Microsoft YaHei', 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    }
-
-    /* 正文字体 */
-    p, a, span, li, input, button, textarea {
-      font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    }
-  </style>
+  <link href="assets/css/header.css" rel="stylesheet">
+  <link href="assets/css/login.css" rel="stylesheet">
 </head>
 
 <body>
-  <!-- JS文件 -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/app.js"></script>
+  <!-- Header -->
+  <div id="header-container"></div>
+
+  <!-- Auth Section -->
+  <section class="auth-section">
+    <div class="auth-container">
+      <div class="auth-wrapper">
+        <div class="auth-grid">
+          <!-- Left Side - Brand & Features -->
+          <div class="auth-image">
+            <div class="brand-content">
+              <h2 data-i18n="welcomeBack">欢迎回来</h2>
+              <p data-i18n="loginDescription">登录您的账户，开启全球购物之旅</p>
+              <div class="auth-features">
+                <div class="feature">
+                  <div class="feature-icon">
+                    <i class="bi bi-shield-check"></i>
+                  </div>
+                  <div class="feature-text">
+                    <h4 data-i18n="secureLogin">安全登录保障</h4>
+                    <p data-i18n="secureLoginDesc">多重加密，确保账户安全</p>
+                  </div>
+                </div>
+                <div class="feature">
+                  <div class="feature-icon">
+                    <i class="bi bi-globe"></i>
+                  </div>
+                  <div class="feature-text">
+                    <h4 data-i18n="globalAccess">全球账户互通</h4>
+                    <p data-i18n="globalAccessDesc">一个账号，畅享全球服务</p>
+                  </div>
+                </div>
+                <div class="feature">
+                  <div class="feature-icon">
+                    <i class="bi bi-person-check"></i>
+                  </div>
+                  <div class="feature-text">
+                    <h4 data-i18n="vipService">专属会员服务</h4>
+                    <p data-i18n="vipServiceDesc">尊享会员特权与优惠</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side - Auth Forms -->
+          <div class="auth-forms">
+            <div class="auth-tab-buttons">
+              <button class="auth-tab active" data-form="loginForm" data-i18n="login">登录</button>
+              <button class="auth-tab" data-form="registerForm" data-i18n="register">注册</button>
+            </div>
+
+            <div class="auth-form-container">
+              <!-- Login Form -->
+              <form id="loginForm" class="auth-form active">
+                <div class="form-group">
+                  <label for="loginEmail" data-i18n="email">邮箱</label>
+                  <div class="input-group">
+                    <i class="bi bi-envelope"></i>
+                    <input type="email" id="loginEmail" required placeholder="请输入邮箱地址">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="loginPassword" data-i18n="password">密码</label>
+                  <div class="input-group">
+                    <i class="bi bi-lock"></i>
+                    <input type="password" id="loginPassword" required placeholder="请输入密码">
+                    <i class="bi bi-eye toggle-password"></i>
+                  </div>
+                </div>
+                <div class="form-options">
+                  <label class="remember-me">
+                    <input type="checkbox">
+                    <span data-i18n="rememberMe">记住我</span>
+                  </label>
+                  <a href="#" class="forgot-password" data-i18n="forgotPassword">忘记密码？</a>
+                </div>
+                <button type="submit" class="auth-button">
+                  <span data-i18n="loginButton">登录</span>
+                  <i class="bi bi-arrow-right"></i>
+                </button>
+
+                <!-- Social Login -->
+                <div class="social-login">
+                  <div class="divider">
+                    <span data-i18n="orLoginWith">或通过以下方式登录</span>
+                  </div>
+                  <div class="social-buttons">
+                    <a href="#" class="social-button" title="Google">
+                      <i class="bi bi-google"></i>
+                    </a>
+                    <a href="#" class="social-button" title="Facebook">
+                      <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="#" class="social-button" title="Twitter">
+                      <i class="bi bi-twitter"></i>
+                    </a>
+                    <a href="#" class="social-button" title="GitHub">
+                      <i class="bi bi-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </form>
+
+              <!-- Register Form -->
+              <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                  <label for="registerEmail" data-i18n="email">邮箱</label>
+                  <div class="input-group">
+                    <i class="bi bi-envelope"></i>
+                    <input type="email" id="registerEmail" required placeholder="请输入邮箱地址">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="registerPassword" data-i18n="password">密码</label>
+                  <div class="input-group">
+                    <i class="bi bi-lock"></i>
+                    <input type="password" id="registerPassword" required placeholder="请设置密码">
+                    <i class="bi bi-eye toggle-password"></i>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="confirmPassword" data-i18n="confirmPassword">确认密码</label>
+                  <div class="input-group">
+                    <i class="bi bi-lock"></i>
+                    <input type="password" id="confirmPassword" required placeholder="请确认密码">
+                    <i class="bi bi-eye toggle-password"></i>
+                  </div>
+                </div>
+                <div class="form-options">
+                  <label class="terms">
+                    <input type="checkbox" required>
+                    <span>
+                      <span data-i18n="agreeToTerms">我同意</span>
+                      <a href="#" data-i18n="termsLink">服务条款</a>
+                      <span data-i18n="andPrivacy">和</span>
+                      <a href="#" data-i18n="privacyLink">隐私政策</a>
+                    </span>
+                  </label>
+                </div>
+                <button type="submit" class="auth-button">
+                  <span data-i18n="registerButton">注册</span>
+                  <i class="bi bi-arrow-right"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main JS Files -->
+  <script src="assets/js/main.js"></script>
   <script src="assets/js/common.js"></script>
   <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/header.js"></script>
+  <script src="assets/js/login.js"></script>
 </body>
+
 </html> 

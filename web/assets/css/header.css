@@ -1,0 +1,115 @@
+/* Header */
+.header {
+  padding: 8px 0;  /* 减小上下padding */
+  height: auto;
+  min-height: 50px; /* 减小最小高度 */
+  background-color: var(--background-color);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 997;
+}
+
+/* Logo */
+.header .logo {
+  margin-right: 15px; /* 减小右边距 */
+}
+
+.header .logo .sitename {
+  font-size: 18px; /* 减小logo字体 */
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+
+.header .logo span {
+  font-size: 18px; /* 减小logo字体 */
+}
+
+/* Navigation */
+.navmenu ul {
+  gap: 5px; /* 减小导航项间距 */
+  margin: 0;
+  padding: 0;
+}
+
+.navmenu a,
+.navmenu a:focus {
+  padding: 6px 10px; /* 减小导航项padding */
+  font-size: 13px; /* 减小导航字体 */
+  font-weight: 500;
+}
+
+/* Dropdown */
+.navmenu .dropdown ul {
+  padding: 6px 0; /* 减小下拉菜单padding */
+  min-width: 180px; /* 减小下拉菜单宽度 */
+  top: 125%;
+}
+
+.navmenu .dropdown ul li {
+  padding: 4px 12px; /* 减小下拉菜单项padding */
+}
+
+.navmenu .dropdown ul a {
+  padding: 6px 0; /* 减小下拉菜单项padding */
+  font-size: 13px; /* 减小字体 */
+}
+
+.navmenu .dropdown ul a i {
+  font-size: 12px; /* 减小图标大小 */
+  margin-right: 8px; /* 减小图标右边距 */
+}
+
+/* Language Selector */
+.language-selector .btn {
+  padding: 4px 8px; /* 减小语言选择器按钮padding */
+  font-size: 13px; /* 减小字体 */
+}
+
+.language-selector .dropdown-menu {
+  min-width: 120px; /* 减小下拉菜单宽度 */
+  padding: 4px 0; /* 减小padding */
+}
+
+.language-selector .dropdown-item {
+  padding: 4px 12px; /* 减小选项padding */
+  font-size: 13px; /* 减小字体 */
+}
+
+/* Mobile Navigation */
+@media (max-width: 1199px) {
+  .mobile-nav-toggle {
+    font-size: 24px; /* 减小移动端菜单图标 */
+    margin-right: 8px; /* 减小右边距 */
+  }
+
+  .navmenu ul {
+    padding: 8px 0; /* 减小移动端菜单padding */
+  }
+
+  .navmenu .dropdown ul {
+    position: static;
+    padding-left: 15px; /* 减小子菜单缩进 */
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .header {
+    padding: 6px 0; /* 更小的移动端padding */
+  }
+  
+  .header .logo .sitename {
+    font-size: 16px; /* 更小的移动端logo */
+  }
+}
+
+/* Transitions */
+.header,
+.header *,
+.navmenu a,
+.navmenu .dropdown ul {
+  transition: all 0.3s ease-in-out;
+}
