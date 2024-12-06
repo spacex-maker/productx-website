@@ -1,0 +1,219 @@
+<section id="categories" class="portfolio">
+  <div class="container">
+    <div class="section-title text-center" data-aos="fade-up">
+      <h2>商品分类</h2>
+      <p>海量二手商品，总有你想要的</p>
+    </div>
+
+    <div class="row" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-12">
+        <ul class="portfolio-filters">
+          <li class="filter-active" data-filter="*">全部</li>
+          <li data-filter=".filter-electronics">数码电子</li>
+          <li data-filter=".filter-fashion">服饰箱包</li>
+          <li data-filter=".filter-home">家居用品</li>
+          <li data-filter=".filter-books">图书文具</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+      <!-- 数码电子 -->
+      <div class="col-lg-4 col-md-6 portfolio-item filter-electronics">
+        <div class="portfolio-wrap">
+          <img src="assets/img/categories/electronics-1.jpg" class="img-fluid" alt="二手手机">
+          <div class="portfolio-info">
+            <h4>二手手机</h4>
+            <p>数码电子</p>
+            <div class="portfolio-links">
+              <a href="#" title="查看更多"><i class="bi bi-link"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 服饰箱包 -->
+      <div class="col-lg-4 col-md-6 portfolio-item filter-fashion">
+        <div class="portfolio-wrap">
+          <img src="assets/img/categories/fashion-1.jpg" class="img-fluid" alt="品牌包包">
+          <div class="portfolio-info">
+            <h4>品牌包包</h4>
+            <p>服饰箱包</p>
+            <div class="portfolio-links">
+              <a href="#" title="查看更多"><i class="bi bi-link"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 更多分类项目 -->
+    </div>
+  </div>
+</section>
+
+<style>
+/* Portfolio Section 样式 */
+.portfolio {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.portfolio-filters {
+  padding: 0;
+  margin: 0 0 40px 0;
+  list-style: none;
+  text-align: center;
+}
+
+.portfolio-filters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  color: #444444;
+  margin: 0 4px 8px 4px;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+  background: #f8f9fa;
+}
+
+.portfolio-filters li:hover,
+.portfolio-filters li.filter-active {
+  background: #4CAF50;
+  color: #fff;
+}
+
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
+.portfolio-wrap {
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  z-index: 1;
+}
+
+.portfolio-wrap::before {
+  content: "";
+  background: rgba(44, 62, 80, 0.7);
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  top: 30px;
+  bottom: 30px;
+  transition: all ease-in-out 0.3s;
+  z-index: 2;
+  opacity: 0;
+}
+
+.portfolio-wrap img {
+  transition: all ease-in-out 0.3s;
+  width: 100%;
+}
+
+.portfolio-wrap:hover img {
+  transform: scale(1.1);
+}
+
+.portfolio-wrap:hover::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+}
+
+.portfolio-wrap .portfolio-info {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+  opacity: 0;
+}
+
+.portfolio-wrap:hover .portfolio-info {
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
+.portfolio-wrap .portfolio-info h4 {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.portfolio-wrap .portfolio-info p {
+  color: #ffffff;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.portfolio-wrap .portfolio-links {
+  margin-top: 15px;
+}
+
+.portfolio-wrap .portfolio-links a {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+.portfolio-wrap .portfolio-links a:hover {
+  background: #4CAF50;
+}
+
+.portfolio-wrap .portfolio-links a i {
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .portfolio-filters li {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 初始化 isotope
+  let portfolioContainer = document.querySelector('.portfolio-container');
+  let iso = new Isotope(portfolioContainer, {
+    itemSelector: '.portfolio-item',
+    layoutMode: 'fitRows'
+  });
+
+  // 过滤功能
+  let portfolioFilters = document.querySelectorAll('.portfolio-filters li');
+  portfolioFilters.forEach(filter => {
+    filter.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      portfolioFilters.forEach(el => {
+        el.classList.remove('filter-active');
+      });
+      this.classList.add('filter-active');
+
+      iso.arrange({
+        filter: this.getAttribute('data-filter') === '*' ? '*' : '.' + this.getAttribute('data-filter')
+      });
+    });
+  });
+});
+</script> 
+</script> 
