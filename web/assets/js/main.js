@@ -235,4 +235,23 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  // Header滚动效果
+  document.addEventListener('DOMContentLoaded', function() {
+    const body = document.body;
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', function() {
+      const currentScroll = window.pageYOffset;
+      
+      // 添加滚动类
+      if (currentScroll > 50) {
+        body.classList.add('scrolled');
+      } else {
+        body.classList.remove('scrolled');
+      }
+      
+      lastScroll = currentScroll;
+    });
+  });
+
 })();

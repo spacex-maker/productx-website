@@ -22,12 +22,24 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #32353a; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #e84545; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  /* 主背景色 - 使用柔和的渐变 */
+  --background-color: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  
+  /* 表面背景色 - 半透明白色 */
+  --surface-color: rgba(255, 255, 255, 0.95);
+  
+  /* 默认文字颜色 */
+  --default-color: #2c3e50;
+  
+  /* 标题文字颜色 */
+  --heading-color: #1a2533;
+  
+  /* 强调色 */
+  --accent-color: #4CAF50;
+  --accent-color-rgb: 76, 175, 80;
+  
+  /* 对比色（用于按钮文字等） */
+  --contrast-color: #ffffff;
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -64,8 +76,8 @@
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
 body {
+  background: var(--background-color);
   color: var(--default-color);
-  background-color: var(--background-color);
   font-family: var(--font-default);
 }
 
@@ -146,10 +158,13 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--default-color);
-  background-color: var(--background-color);
   padding: 20px 0;
-  transition: all 0.5s;
+  transition: all 0.5s ease;
   z-index: 997;
 }
 
@@ -216,7 +231,8 @@ h6 {
 /* Index Page Header
 ------------------------------*/
 .index-page .header {
-  --background-color: rgba(255, 255, 255, 0);
+  background: transparent;
+  border-bottom: none;
   --heading-color: #ffffff;
   --nav-color: rgba(255, 255, 255, 0.5);
   --nav-hover-color: #ffffff;
@@ -225,10 +241,22 @@ h6 {
 /* Index Page Header on Scroll
 ------------------------------*/
 .index-page.scrolled .header {
-  --background-color: #ffffff;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   --heading-color: #32353a;
   --nav-color: #3a3939;
   --nav-hover-color: #e84545;
+}
+
+/* 暗色模式支持 */
+@media (prefers-color-scheme: dark) {
+  .index-page.scrolled .header {
+    background: rgba(26, 31, 37, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
 }
 
 /*--------------------------------------------------------------
@@ -472,8 +500,9 @@ h6 {
 # Global Footer
 --------------------------------------------------------------*/
 .footer {
+  background: linear-gradient(180deg, rgba(248, 249, 250, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%);
+  backdrop-filter: blur(10px);
   color: var(--default-color);
-  background-color: var(--background-color);
   font-size: 14px;
   padding-bottom: 50px;
   position: relative;
@@ -716,8 +745,11 @@ h6 {
 --------------------------------------------------------------*/
 section,
 .section {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
   color: var(--default-color);
-  background-color: var(--background-color);
   padding: 60px 0;
   scroll-margin-top: 98px;
   overflow: clip;
@@ -778,6 +810,14 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(
+    -45deg,
+    rgba(248, 249, 250, 0.95),
+    rgba(255, 255, 255, 0.95),
+    rgba(236, 240, 241, 0.95)
+  );
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
 }
 
 .hero img {
@@ -1340,8 +1380,10 @@ section,
 }
 
 .pricing .pricing-item {
-  background-color: var(--surface-color);
-  box-shadow: 0 3px 20px -2px rgba(0, 0, 0, 0.1);
+  background: var(--surface-color);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
   padding: 60px 40px;
   height: 100%;
   position: relative;
@@ -1491,7 +1533,7 @@ section,
 }
 
 .faq .faq-container .faq-item {
-  background-color: var(--surface-color);
+  background: var(--surface-color);
   position: relative;
   padding: 20px;
   margin-bottom: 20px;
@@ -1828,7 +1870,9 @@ section,
 --------------------------------------------------------------*/
 .recent-posts article {
   background: var(--surface-color);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
   padding: 30px;
   height: 100%;
   border-radius: 10px;
@@ -2263,8 +2307,10 @@ section,
 # Blog Posts Section
 --------------------------------------------------------------*/
 .blog-posts article {
-  background-color: var(--surface-color);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  background: var(--surface-color);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
   padding: 30px;
   height: 100%;
   border-radius: 10px;
@@ -3127,4 +3173,83 @@ section,
   left: 0;
   z-index: 0;
   pointer-events: none;
+}
+
+/* Header文字颜色控制 */
+.index-page .header {
+  background: transparent;
+  border-bottom: none;
+}
+
+/* 初始状态 - 浅色文字 */
+.index-page .header .logo .sitename {
+  color: #fff;
+}
+
+.index-page .header .navmenu a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.index-page .header .navmenu a:hover {
+  color: #fff;
+}
+
+.index-page .header .btn-getstarted {
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+}
+
+.index-page .header .btn-getstarted:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* 滚动状态 - 深色文字 */
+.index-page.scrolled .header .logo .sitename {
+  color: var(--heading-color);
+}
+
+.index-page.scrolled .header .navmenu a {
+  color: var(--default-color);
+}
+
+.index-page.scrolled .header .navmenu a:hover {
+  color: var(--accent-color);
+}
+
+.index-page.scrolled .header .btn-getstarted {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.index-page.scrolled .header .btn-getstarted:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+}
+
+/* 暗色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .index-page.scrolled .header .logo .sitename {
+    color: #fff;
+  }
+
+  .index-page.scrolled .header .navmenu a {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .index-page.scrolled .header .navmenu a:hover {
+    color: var(--accent-color);
+  }
+}
+
+/* 移动端适配 */
+@media (max-width: 991px) {
+  .index-page .header .mobile-nav-toggle {
+    color: #fff;
+  }
+
+  .index-page.scrolled .header .mobile-nav-toggle {
+    color: var(--default-color);
+  }
 }
