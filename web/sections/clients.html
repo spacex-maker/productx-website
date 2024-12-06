@@ -1,30 +1,54 @@
-<section id="partners" class="clients">
+<section id="clients" class="clients">
   <div class="container">
-    <div class="section-title text-center" data-aos="fade-up">
+    <div class="section-title text-center">
       <h2>合作伙伴</h2>
-      <p>值得信赖的物流及支付合作伙伴</p>
     </div>
-    
-    <div class="row">
-      <div class="col-lg-2 col-md-4 col-6">
-        <div class="client-logo">
-          <img src="assets/img/partners/sf-express.png" alt="顺丰速运" class="img-fluid">
-        </div>
-      </div>
 
-      <div class="col-lg-2 col-md-4 col-6">
-        <div class="client-logo">
-          <img src="assets/img/partners/alipay.png" alt="支付宝" class="img-fluid">
-        </div>
+    <div class="partner-list">
+      <div class="partner-item">
+        <img src="assets/img/partners/sf-express.png" alt="顺丰速运">
       </div>
-
-      <div class="col-lg-2 col-md-4 col-6">
-        <div class="client-logo">
-          <img src="assets/img/partners/wechat-pay.png" alt="微信支付" class="img-fluid">
-        </div>
+      <div class="partner-item">
+        <img src="assets/img/partners/alipay.png" alt="支付宝">
       </div>
-
-      <!-- 更多合作伙伴 logo -->
+      <div class="partner-item">
+        <img src="assets/img/partners/wechat-pay.png" alt="微信支付">
+      </div>
     </div>
   </div>
-</section> 
+</section>
+
+<style>
+.clients {
+  padding: 60px 0;
+  background: #fff;
+}
+
+.section-title {
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  color: #333;
+}
+
+.partner-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.partner-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.partner-item img:hover {
+  transform: scale(1.1);
+}
+</style> 
