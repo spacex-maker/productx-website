@@ -85,5 +85,26 @@
   "emailAddress": "info@example.com",
 
   "copyright": "© Copyright",
-  "allRightsReserved": "All Rights Reserved"
+  "allRightsReserved": "All Rights Reserved",
+
+  "welcomeBack": "Welcome Back",
+  "authDescription": "Join our eco-friendly second-hand trading platform to give idle items new life and contribute to environmental protection.",
+  "login": "Login",
+  "register": "Register",
+  "email": "Email",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "rememberMe": "Remember me",
+  "forgotPassword": "Forgot Password?",
+  "username": "Username",
+  "agreeToTerms": "I agree to Terms of Service and Privacy Policy",
+  "orLoginWith": "Or continue with",
+  "termsOfService": "Terms of Service",
+  "privacyPolicy": "Privacy Policy",
+  "secureLogin": "Secure Login",
+  "secureLoginDesc": "Multi-layer encryption for security",
+  "globalAccess": "Global Access",
+  "globalAccessDesc": "One account for all services",
+  "vipService": "VIP Service",
+  "vipServiceDesc": "Exclusive member benefits"
 } 

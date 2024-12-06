@@ -113,3 +113,21 @@
 .navmenu .dropdown ul {
   transition: all 0.3s ease-in-out;
 }
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* ... 其他现有样式 ... */
+}
+
+.auth-buttons {
+  margin-left: auto; /* 确保登录按钮靠右对齐 */
+}
+
+.login-btn {
+  /* 按钮样式 */
+  padding: 8px 20px;
+  border-radius: 4px;
+  /* ... 其他样式 ... */
+}

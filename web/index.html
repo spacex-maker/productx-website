@@ -285,7 +285,7 @@
       font-size: 14px;
     }
 
-    /* 导航菜单字体调整 */
+    /* 导��菜单字体调整 */
     .header .navmenu a {
       font-size: 14px;
       padding: 6px 10px;
@@ -832,6 +832,57 @@
         padding: 5px 12px;
       }
     }
+
+    /* 右侧操作区域样式 */
+    .header-right {
+      margin-left: auto;
+    }
+
+    /* 登录注册按钮样式优化 */
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-auth {
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-login {
+      color: #4CAF50;
+      border: 1px solid #4CAF50;
+    }
+
+    .btn-login:hover {
+      background: rgba(76, 175, 80, 0.1);
+    }
+
+    .btn-register {
+      background: #4CAF50;
+      color: #fff;
+      border: 1px solid #4CAF50;
+    }
+
+    .btn-register:hover {
+      background: #45a049;
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+      .auth-buttons {
+        gap: 6px;
+      }
+
+      .btn-auth {
+        padding: 4px 12px;
+        font-size: 13px;
+      }
+    }
   </style>
 
   <!-- 在 head 中添加 Three.js -->
@@ -928,29 +979,33 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <div class="auth-buttons">
-        <a href="login.html" class="btn-auth btn-login" data-i18n="login">登录</a>
-        <a href="login.html?tab=register" class="btn-auth btn-register" data-i18n="register">注册</a>
-      </div>
+      <!-- 右侧操作区域 -->
+      <div class="header-right d-flex align-items-center">
+        <!-- 语言选择器 -->
+        <div class="language-selector dropdown">
+          <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <i class="bi bi-globe"></i>
+            <span class="current-lang"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#" data-lang="ar">العربية</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="de">Deutsch</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="es">Español</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="fr">Français</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="it">Italiano</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="ja">日本語</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="ko">한국어</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="ru">Русский</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="zh">中文</a></li>
+          </ul>
+        </div>
 
-      <!-- 在 header 中添加语言切换菜单 -->
-      <div class="language-selector dropdown">
-        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
-          <i class="bi bi-globe"></i>
-          <span class="current-lang"></span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#" data-lang="ar">العربية</a></li>
-          <li><a class="dropdown-item" href="#" data-lang="de">Deutsch</a></li>
-          <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
-          <li><a class="dropdown-item" href="#" data-lang="es">Español</a></li>
-          <li><a class="dropdown-item" href="#" data-lang="fr">Français</a></li>
-          <li><a class="dropdown-item" href="#" data-lang="it">Italiano</a></li>
-          <li><a class="dropdown-item" href="#" data-lang="ja">日本語</a></li>
-          <li><a class="dropdown-item" href="#" data-lang="ko">한국어</a></li>
-          <li><a class="dropdown-item" href="#" data-lang="ru">Русский</a></li>
-          <li><a class="dropdown-item" href="#" data-lang="zh">中文</a></li>
-        </ul>
+        <!-- 登录/注册按钮 -->
+        <div class="auth-buttons ms-3">
+          <a href="login.html" class="btn-auth btn-login" data-i18n="login">登录</a>
+          <a href="login.html?tab=register" class="btn-auth btn-register" data-i18n="register">注册</a>
+        </div>
       </div>
 
     </div>

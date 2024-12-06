@@ -25,7 +25,7 @@
   "doorToDoorService": "上门服务",
   "quickClearance": "快速清关",
   "lastMileDelivery": "最后一公里配送",
-  "successfulTransactions": "成功交���",
+  "successfulTransactions": "成功交易",
   "registeredUsers": "注册用户",
   "carbonReduction": "碳减排量(kg)",
   "userSatisfactionRate": "用户满意度(%)",
@@ -96,7 +96,7 @@
   "luxury": "奢侈品",
   "collectibles": "收藏品",
   "services": "增值服务",
-  "authentication": "鉴定服务",
+  "authentication": "���定服务",
   "recycling": "回收服务",
   "maintenance": "维修保养",
   "logistics": "物流配送",
@@ -149,5 +149,33 @@
     "recycling": "回收服务",
     "valueAddedServices": "增值服务",
     "maintenance": "维修保养"
+  },
+  "emailPlaceholder": "请输入邮箱地址",
+  "passwordPlaceholder": "请输入密码",
+  "confirmPasswordPlaceholder": "请再次输入密码",
+  "loginButton": "登录",
+  "registerButton": "立即注册",
+  "secureLogin": "安全登录保障",
+  "secureLoginDesc": "多重加密，确保账户安全",
+  "globalAccess": "全球账户互通",
+  "globalAccessDesc": "一个账号，畅享全球服务",
+  "vipService": "专属会员服务",
+  "vipServiceDesc": "尊享会员特权与优惠",
+  "andPrivacy": "和",
+  "agreeToTermsPrefix": "我同意",
+  "agreeToTermsSuffix": "和",
+  "socialLogin": {
+    "google": "谷歌账号登录",
+    "facebook": "脸书账号登录",
+    "twitter": "推特账号登录",
+    "github": "GitHub账号登录"
+  },
+  "validationMessages": {
+    "emailRequired": "请输入邮箱地址",
+    "emailInvalid": "请输入有效的邮箱地址",
+    "passwordRequired": "请输入密码",
+    "passwordLength": "密码长度必须在6-20个字符之间",
+    "passwordMismatch": "两次输入的密码不一致",
+    "termsRequired": "请阅读并同意服务条款和隐私政策"
   }
 } 
