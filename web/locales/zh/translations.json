@@ -60,7 +60,7 @@
   "contact": "联系我们",
   "termsOfService": "服务条款",
   "privacyPolicy": "隐私政策",
-  "footerDescription": "我们提供可持续的二手交易平台，为可持续社会发展���贡献。",
+  "footerDescription": "我们提供可持续的二手交易平台，为可持续社会发展做贡献。",
   "usefulLinks": "常用链接",
   "ourServices": "我们的服务",
   "contactUs": "联系我们",
@@ -95,7 +95,6 @@
   "sports": "运动户外",
   "luxury": "奢侈品",
   "collectibles": "收藏品",
-  "services": "增服务",
   "authentication": "定服务",
   "recycling": "回收服务",
   "maintenance": "维修保养",
@@ -256,5 +255,9 @@
   "instagramTitle": "访问我们的 Instagram",
   "linkedinTitle": "访问我们的 LinkedIn",
   "loading": "加载中...",
-  "preloaderText": "请稍候"
+  "preloaderText": "请稍候",
+  "protxTeamIsDedicatedToImprovingTheCustomerExperience": "Protx团队致力于提升客户使用体验",
+  "allMembers": "所有会员",
+  "birthdayPrivileges": "生日特权",
+  "exclusiveDiscounts": "专属折扣"
 }
