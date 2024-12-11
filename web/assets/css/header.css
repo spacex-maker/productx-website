@@ -130,3 +130,162 @@
   border-radius: 4px;
   /* ... 其他样式 ... */
 }
+
+/* 确保header样式的独立性 */
+.header {
+  padding: 8px 0;
+  height: auto;
+  background-color: var(--background-color);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 997;
+}
+
+/* 专门针对index页面的header样式 */
+body.index-page .header {
+  background: transparent;
+  border-bottom: none;
+  box-shadow: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 初始状态 - 浅色文字 */
+body.index-page .header .logo .sitename {
+  color: #fff;
+  transition: color 0.3s ease-in-out;
+}
+
+body.index-page .header .navmenu a {
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease-in-out;
+}
+
+body.index-page .header .navmenu a:hover {
+  color: #fff;
+}
+
+body.index-page .header .btn-getstarted {
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+body.index-page .header .btn-getstarted:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* 滚动状态 - 深色文字 */
+body.index-page.scrolled .header {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+body.index-page.scrolled .header .logo .sitename {
+  color: var(--heading-color);
+}
+
+body.index-page.scrolled .header .navmenu a {
+  color: var(--default-color);
+}
+
+body.index-page.scrolled .header .navmenu a:hover {
+  color: var(--accent-color);
+}
+
+body.index-page.scrolled .header .btn-getstarted {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+body.index-page.scrolled .header .btn-getstarted:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+}
+
+/* 用户菜单颜色适配 */
+body.index-page .header .merchant-name {
+  color: #fff;
+  transition: color 0.3s ease-in-out;
+}
+
+body.index-page.scrolled .header .merchant-name {
+  color: var(--default-color);
+}
+
+/* 移动端导航按钮颜色适配 */
+body.index-page .header .mobile-nav-toggle {
+  color: #fff;
+  transition: color 0.3s ease-in-out;
+}
+
+body.index-page.scrolled .header .mobile-nav-toggle {
+  color: var(--default-color);
+}
+
+/* 暗色模式适配 */
+@media (prefers-color-scheme: dark) {
+  body.index-page.scrolled .header {
+    background: rgba(26, 31, 37, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  body.index-page.scrolled .header .logo .sitename {
+    color: #fff;
+  }
+
+  body.index-page.scrolled .header .navmenu a {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  body.index-page.scrolled .header .navmenu a:hover {
+    color: var(--accent-color);
+  }
+
+  body.index-page.scrolled .header .merchant-name {
+    color: #fff;
+  }
+
+  body.index-page.scrolled .header .mobile-nav-toggle {
+    color: #fff;
+  }
+}
+
+/* 渐变过渡效果 */
+body.index-page .header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, transparent 100%);
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+body.index-page.scrolled .header::before {
+  opacity: 0;
+}
+
+/* 滚动进度指示器 */
+body.index-page .header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--accent-color);
+  width: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+body.index-page.scrolled .header::after {
+  width: var(--scroll-width, 0%);
+}

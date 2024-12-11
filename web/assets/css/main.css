@@ -158,13 +158,49 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  height: 70px;
-  padding: 0 15px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  height: 70px; /* 确保固定高度 */
+}
+
+.header .container-fluid {
+  height: 100%; /* 容器占满header高度 */
+  display: flex;
+  align-items: center; /* 垂直居中 */
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.logo {
+  margin-right: 24px;
+  height: 100%; /* logo容器占满高度 */
+  display: flex;
+  align-items: center;
+}
+
+.navmenu {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  height: 100%; /* 导航占满高度 */
+  align-items: center;
+}
+
+/* 右侧按钮组 */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  height: 100%; /* 右侧按钮组占满高度 */
+}
+
+.btn-download {
+  padding: 8px 16px;
+  background: #4CAF50;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 /* Logo 样式优化 */
@@ -3355,4 +3391,20 @@ section,
     .dropdown-content {
         right: -10px; /* 调整移动端下拉框位置 */
     }
+}
+
+/* 仅添加下载按钮样式 */
+.btn-download {
+  padding: 8px 16px;
+  background: #4CAF50;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.btn-download:hover {
+  color: #fff;
+  background: #45a049;
 }

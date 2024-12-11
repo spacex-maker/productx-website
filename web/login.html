@@ -26,19 +26,21 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <!-- Main CSS Files -->
-  <link href="assets/css/main.css" rel="stylesheet">
-  <link href="assets/css/header.css" rel="stylesheet">
   <link href="assets/css/login.css" rel="stylesheet">
 </head>
 
 <body>
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <h1 class="sitename">Pro<span class="highlight">TX</span></h1>
-      </a>
-  
-      <!-- 语言切换菜单 -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid">
+      <!-- Logo and User Label -->
+      <div class="d-flex align-items-center">
+        <a href="index.html" class="logo">
+          <h1 class="sitename">Pro<span class="highlight">TX</span></h1>
+        </a>
+        <div class="merchant-label">用户登录</div>
+      </div>
+
+      <!-- Language Selector -->
       <div class="language-selector">
         <div class="dropdown">
           <button class="btn dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -59,11 +61,10 @@
           </ul>
         </div>
       </div>
-  
     </div>
   </header>
   <!-- Auth Section -->
-  <section class="auth-section">
+  <div class="auth-area">
     <div class="auth-container">
       <div class="auth-wrapper">
         <div class="auth-grid">
@@ -71,7 +72,7 @@
           <div class="auth-image">
             <div class="brand-content">
               <h2 data-i18n="welcomeBack">欢迎回来</h2>
-              <p data-i18n="loginDescription">登录您的账户，开启全球购物之旅</p>
+              <p data-i18n="loginToYourAccountAndStartYourGlobalShoppingJourney">登录您的账户，开启全球购物之旅</p>
               <div class="auth-features">
                 <div class="feature">
                   <div class="feature-icon">
@@ -209,13 +210,14 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- Main JS Files -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/common.js"></script>
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/login.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html> 
