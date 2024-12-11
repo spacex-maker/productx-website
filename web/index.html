@@ -203,7 +203,7 @@
             }
         }
 
-        /* 原有样式保持不变，添加地图相关样式 */
+        /* 原有样式保持不变，添��地图相关样式 */
         .continent {
             fill: #2B3F6B;
             stroke: #ffffff;
@@ -244,7 +244,7 @@
         }
 
         .header .btn-getstarted {
-            padding: 6px 20px; /* 减小按钮��边距 */
+            padding: 6px 20px; /* 减小按钮�����边距 */
             margin-left: 15px; /* 减小按钮左边距 */
         }
 
@@ -386,7 +386,7 @@
             }
         }
 
-        /* Pricing 模块样式优化 */
+        /* Pricing 模块��式优化 */
         .pricing {
             padding: 40px 0; /* 减小整体内边距 */
         }
@@ -564,7 +564,7 @@
 
         /* 会员套餐模块样式优化 - 添加玻璃磨砂效果 */
         .plan-card {
-            background: rgba(255, 255, 255, 0.2); /* 改�������������������明������� */
+            background: rgba(255, 255, 255, 0.2); /* ����������������������明������� */
             backdrop-filter: blur(10px); /* 添加模糊效果 */
             -webkit-backdrop-filter: blur(10px); /* Safari 支持 */
             border: 1px solid rgba(255, 255, 255, 0.3); /* 添加半透��边框 */
@@ -2110,6 +2110,38 @@
                 font-size: 9px;
             }
         }
+
+        /* 登录下拉菜单样式 */
+        .login-dropdown {
+            min-width: 160px;
+            padding: 8px 0;
+            margin-top: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-dropdown .dropdown-item {
+            padding: 8px 16px;
+            color: #333;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .login-dropdown .dropdown-item:hover {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+        }
+
+        .login-dropdown .dropdown-item i {
+            font-size: 16px;
+        }
     </style>
 
     <!-- 在 head 中添加 Three.js -->
@@ -2253,6 +2285,25 @@
             </div>
         </div>
 
+        <!-- 在导航栏的登录按钮部分添加维修商户登录 -->
+        <div class="position-relative">
+            <a class="btn-getstarted" href="#" data-bs-toggle="dropdown">
+                <i class="bi bi-person"></i> 登录
+            </a>
+            <ul class="dropdown-menu login-dropdown">
+                <li>
+                    <a class="dropdown-item" href="login.html">
+                        <i class="bi bi-person"></i> 用户登录
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="merchants-login.html">
+                        <i class="bi bi-tools"></i> 维修商户登录
+                    </a>
+                </li>
+            </ul>
+        </div>
+
     </div>
 </header>
 
@@ -2274,19 +2325,23 @@
                             <input type="submit" value="搜索">
                         </div>
                     </form>
-                    <!-- 添加入口按钮 -->
+                    <!-- 修改入口按钮 -->
                     <div class="entry-buttons" data-aos="fade-up" data-aos-delay="400">
                         <a href="#" class="entry-btn buyer">
                             <i class="bi bi-cart"></i>
-                            <span>买家入口</span>
+                            <span>我要买</span>
                         </a>
                         <a href="#" class="entry-btn seller">
                             <i class="bi bi-shop"></i>
-                            <span>卖家入口</span>
+                            <span>我要卖</span>
                         </a>
                         <a href="#" class="entry-btn logistics">
                             <i class="bi bi-truck"></i>
-                            <span>物流入口</span>
+                            <span>我要寄</span>
+                        </a>
+                        <a href="#" class="entry-btn repair">
+                            <i class="bi bi-tools"></i>
+                            <span>我要修</span>
                         </a>
                     </div>
                 </div>
@@ -2700,7 +2755,7 @@
                             </div>
                             <div class="data-info">
                                 <h3>17,400,000,000</h3>
-                                <p>年度正规回收量(千克)</p>
+                                <p>年度正���回收量(千克)</p>
                                 <div class="trend warning">
                                     <i class="bi bi-pie-chart"></i>
                                     <span>仅占总量17.4%</span>
@@ -3096,7 +3151,7 @@
                         <div class="icon flex-shrink-0"><i class="bi bi-cash-coin"></i></div>
                         <div>
                             <h4 class="title">物美价廉</h4>
-                            <p class="description">高于市场的回收价格，低于同行的服务费用，让您享受实惠</p>
+                            <p class="description">高于市场的回收价格，低于���行的服务费用，让您享受实惠</p>
                         </div>
                     </div>
                 </div>
@@ -3383,7 +3438,7 @@
                     </div>
                 </div>
 
-                <!-- 季度会员 -->
+                <!-- 季���会员 -->
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="plan-card popular">
                         <div class="popular-tag" data-i18n="mostPopular">最受欢迎</div>

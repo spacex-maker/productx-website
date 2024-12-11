@@ -5,21 +5,8 @@ class Header {
   }
 
   async init() {
-    await this.loadHeader();
     this.initializeComponents();
     this.handleAuthDisplay();
-  }
-
-  async loadHeader() {
-    try {
-      const response = await fetch('/includes/header.html');
-      const html = await response.text();
-      if (this.headerContainer) {
-        this.headerContainer.innerHTML = html;
-      }
-    } catch (error) {
-      console.error('Failed to load header:', error);
-    }
   }
 
   checkLoginStatus() {

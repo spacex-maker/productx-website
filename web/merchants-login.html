@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>商户登录/注册 - ProTX</title>
+    <!-- 引入相关CSS -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header 部分 -->
+    <header class="merchant-login-header">
+        <a href="index.html" class="logo">
+            <h1 class="sitename">Pro<span class="highlight">TX</span></h1>
+        </a>
+        <h2 class="page-title">商户登录</h2>
+    </header>
+
+    <main id="main">
+        <section class="merchant-auth">
+            <div class="merchant-auth-tabs">
+                <button class="merchant-auth-tab active" data-target="login">登录</button>
+                <button class="merchant-auth-tab" data-target="register">注册</button>
+            </div>
+
+            <!-- 登录表单 -->
+            <form id="loginForm" class="merchant-auth-form active">
+                <div class="merchant-form-group">
+                    <label for="loginPhone">联系电话</label>
+                    <input type="tel" class="merchant-form-control" id="loginPhone" placeholder="请输入您的联系电话" required>
+                </div>
+                <div class="merchant-form-group">
+                    <label for="loginPassword">密码</label>
+                    <div class="merchant-password-input">
+                        <input type="password" class="merchant-form-control" id="loginPassword" placeholder="请输入您的密码" required>
+                        <i class="bi bi-eye-slash merchant-toggle-password"></i>
+                    </div>
+                </div>
+                <button type="submit" class="merchant-btn-primary">登录</button>
+            </form>
+
+            <!-- 注册表单 -->
+            <form id="registerForm" class="merchant-auth-form">
+                <div class="merchant-form-group">
+                    <label for="merchantName">商户名称</label>
+                    <input type="text" class="merchant-form-control" id="merchantName" placeholder="请输入商户名称" required>
+                </div>
+                <div class="merchant-form-group">
+                    <label for="contactPerson">联系人姓名</label>
+                    <input type="text" class="merchant-form-control" id="contactPerson" placeholder="请输入联系人姓名" required>
+                </div>
+                <div class="merchant-form-group">
+                    <label for="contactPhone">联系电话</label>
+                    <input type="tel" class="merchant-form-control" id="contactPhone" placeholder="请输入联系电话" required>
+                </div>
+                <div class="merchant-form-group">
+                    <label for="contactEmail">联系邮箱</label>
+                    <input type="email" class="merchant-form-control" id="contactEmail" placeholder="请输入联系邮箱" required>
+                </div>
+                <div class="merchant-form-group">
+                    <label for="password">密码</label>
+                    <div class="merchant-password-input">
+                        <input type="password" class="merchant-form-control" id="password" placeholder="请输入密码" required>
+                        <i class="bi bi-eye-slash merchant-toggle-password"></i>
+                    </div>
+                </div>
+                <button type="submit" class="merchant-btn-primary">注册</button>
+            </form>
+        </section>
+    </main>
+
+    <style>
+    /* 页面整体布局 */
+    body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center; /* 垂直居中 */
+        justify-content: center; /* 水平居中 */
+        background-image: url('https://px-1258150206.cos.ap-nanjing.myqcloud.com/protx/website/5d34d1022760c676e48d306f471dd6c77ad85b05e42e454c6bb83ce46ec75cdf.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    /* 主要内容区域 */
+    .merchant-auth {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 20px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .merchant-auth-tabs {
+        display: flex;
+        margin-bottom: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .merchant-auth-tab {
+        flex: 1;
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 13px;
+        padding: 8px 0;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .merchant-auth-tab.active {
+        color: #fff;
+        border-bottom: 2px solid #4CAF50;
+    }
+
+    .merchant-auth-form {
+        display: none;
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .merchant-auth-form.active {
+        display: block;
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    .auth-form h3 {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #fff;
+        font-weight: 600;
+    }
+
+    .form-group {
+        margin-bottom: 6px;
+    }
+
+    .form-group label {
+        margin-bottom: 1px;
+        font-size: 11px;
+        line-height: 1;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .form-control {
+        min-height: 26px !important;
+        height: 26px !important;
+        line-height: 26px !important;
+        padding: 0 8px !important;
+        font-size: 12px;
+        border-radius: 4px;
+    }
+
+    .form-control:focus {
+        min-height: 26px !important;
+        height: 26px !important;
+    }
+
+    .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 12px;
+    }
+
+    .password-input {
+        position: relative;
+    }
+
+    .password-input .form-control {
+        padding-right: 25px !important;
+    }
+
+    .toggle-password {
+        right: 6px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 11px;
+        line-height: 1;
+    }
+
+    .btn-primary {
+        height: 26px !important;
+        line-height: 26px !important;
+        padding: 0;
+        margin-top: 8px;
+        font-size: 12px;
+    }
+
+    .btn-primary:hover {
+        background: rgba(76, 175, 80, 0.9);
+    }
+
+    .invalid-feedback {
+        font-size: 10px;
+        margin-top: 2px;
+        color: rgba(255, 99, 71, 0.9);
+    }
+
+    /* 动画效果增强 */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+        .merchant-auth {
+            max-width: 560px;
+            margin: 0 15px;
+            padding: 20px;
+        }
+        
+        .form-control {
+            height: 30px;
+        }
+        
+        .btn-primary {
+            height: 30px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .merchant-auth {
+            max-width: 500px;
+            padding: 18px;
+        }
+    }
+
+    /* 确保在不支持 backdrop-filter 的浏览器上也有好的显示效果 */
+    @supports not (backdrop-filter: blur(12px)) {
+        .merchant-auth {
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .form-control {
+            background: rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+        
+        .auth-tab,
+        .auth-form h3,
+        .form-group label {
+            color: #333;
+        }
+    }
+
+    /* 自动填充样式优化 */
+    .form-control:-webkit-autofill,
+    .form-control:-webkit-autofill:hover,
+    .form-control:-webkit-autofill:focus {
+        -webkit-text-fill-color: #fff;
+        -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.08) inset;
+        transition: background-color 5000s ease-in-out 0s;
+    }
+
+    /* 确保在所有浏览器中保持一致高度 */
+    input.form-control {
+        box-sizing: border-box !important;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    /* Header 样式优化 */
+    .merchant-login-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .merchant-login-header .logo {
+        text-decoration: none;
+    }
+
+    .merchant-login-header .sitename {
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        margin: 0;
+        letter-spacing: 0.5px;
+    }
+
+    .merchant-login-header .highlight {
+        color: #4CAF50;
+    }
+
+    /* 新增：页面标题样式 */
+    .merchant-login-header .page-title {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        margin: 0;
+        padding-right: 20px;
+    }
+
+    /* 按钮样式优化 */
+    .merchant-btn-primary {
+        width: 100%;
+        height: 36px; /* 增加高度 */
+        background: linear-gradient(135deg, #4CAF50, #66BB6A); /* 使用渐变背景 */
+        border: none;
+        border-radius: 18px; /* 圆角按钮 */
+        color: #fff;
+        font-size: 14px; /* 增加字体大小 */
+        font-weight: 600;
+        margin-top: 15px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+        cursor: pointer;
+    }
+
+    .merchant-btn-primary:hover {
+        background: linear-gradient(135deg, #45a049, #5cb85c); /* 悬停时的渐变背景 */
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* 增强阴影 */
+        transform: translateY(-2px); /* 悬停时的轻微上移 */
+    }
+
+    .merchant-btn-primary:active {
+        background: linear-gradient(135deg, #388E3C, #4CAF50); /* 点击时的渐变背景 */
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* 点击时的阴影 */
+        transform: translateY(0); /* 点击时恢复位置 */
+    }
+
+    /* 输入框样式优化 */
+    .merchant-form-control {
+        width: 100%;
+        height: 28px;
+        padding: 2px 8px;
+        font-size: 11px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        color: #fff;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateY(0);
+    }
+
+    .merchant-form-control:hover {
+        background: rgba(255, 255, 255, 0.13);
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .merchant-form-control:focus {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+        transform: translateY(-1px);
+        outline: none;
+    }
+
+    .merchant-form-control::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 11px;
+    }
+
+    /* 密码输入框图标 */
+    .merchant-password-input {
+        position: relative;
+    }
+
+    .merchant-toggle-password {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .merchant-toggle-password:hover {
+        color: rgba(255, 255, 255, 0.8);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    /* 标签样式优化 */
+    .merchant-form-group label {
+        display: block;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 10px;
+        margin-bottom: 2px;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        transition: all 0.3s ease;
+    }
+
+    .merchant-form-group:hover label {
+        color: rgba(255, 255, 255, 0.9);
+        transform: translateX(2px);
+        transition: all 0.3s ease;
+    }
+
+    /* 容器动画 */
+    .merchant-auth-container {
+        animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* 错误状态动画 */
+    .merchant-form-control.error {
+        animation: shake 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    }
+
+    @keyframes shake {
+        10%, 90% {
+            transform: translateX(-1px);
+        }
+        20%, 80% {
+            transform: translateX(2px);
+        }
+        30%, 50%, 70% {
+            transform: translateX(-3px);
+        }
+        40%, 60% {
+            transform: translateX(3px);
+        }
+    }
+
+    /* 输入框容器宽度相应调整 */
+    .merchant-form-group {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    /* 表单容器调整 */
+    .merchant-auth-container {
+        width: 100%;
+        padding: 0 8px;
+    }
+    </style>
+
+    <!-- Scripts -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 表单切换功能
+        const tabs = document.querySelectorAll('.merchant-auth-tab');
+        const forms = document.querySelectorAll('.merchant-auth-form');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // 移除所有标签的激活状态
+                tabs.forEach(t => t.classList.remove('active'));
+                // 激活当前标签
+                tab.classList.add('active');
+                
+                // 隐藏所有表单
+                forms.forEach(form => {
+                    form.style.opacity = '0';
+                    form.style.display = 'none';
+                });
+                
+                // 显示对应的表单
+                const targetForm = document.getElementById(`${tab.dataset.target}Form`);
+                if (targetForm) {
+                    targetForm.style.display = 'block';
+                    // 使用 setTimeout 确保过渡动画正常工作
+                    setTimeout(() => {
+                        targetForm.style.opacity = '1';
+                        targetForm.style.transform = 'translateY(0)';
+                    }, 50);
+                }
+            });
+        });
+
+        // 密码显示切换
+        const toggles = document.querySelectorAll('.merchant-toggle-password');
+        toggles.forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const input = this.previousElementSibling;
+                const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                input.setAttribute('type', type);
+                this.classList.toggle('bi-eye');
+                this.classList.toggle('bi-eye-slash');
+            });
+        });
+    });
+    </script>
+</body>
+</html>
