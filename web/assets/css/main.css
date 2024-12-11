@@ -158,104 +158,103 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
+  height: 70px;
+  padding: 0 15px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--default-color);
-  padding: 20px 0;
-  transition: all 0.5s ease;
-  z-index: 997;
+  transition: all 0.3s ease;
 }
 
+/* Logo 样式优化 */
 .header .logo {
   line-height: 1;
 }
 
 .header .logo img {
-  max-height: 36px;
-  margin-right: 8px;
+  max-height: 32px; /* 减小logo图片高度 */
+  margin-right: 6px;
 }
 
 .header .logo h1 {
   font-size: 24px;
   margin: 0;
   font-weight: 600;
-  color: var(--heading-color);
 }
 
-.header .logo span {
-  color: var(--accent-color);
-  font-size: 24px;
-  font-weight: 600;
-  padding-left: 3px;
+/* 导航菜单优化 */
+@media (min-width: 1200px) {
+  .navmenu {
+    padding: 0;
+  }
+
+  .navmenu ul {
+    margin: 0;
+    padding: 0;
+    gap: 5px; /* 减小导航项间距 */
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .navmenu .dropdown ul {
+    margin-top: 5px;
+    padding: 8px 0;
+  }
+
+  .navmenu .dropdown ul a {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
 }
 
-.header .btn-getstarted,
-.header .btn-getstarted:focus {
-  color: var(--contrast-color);
-  background: var(--accent-color);
+/* 按钮样式优化 */
+.header .btn-getstarted {
+  padding: 6px 16px;
   font-size: 14px;
-  padding: 8px 26px;
-  margin: 0;
-  border-radius: 4px;
-  transition: 0.3s;
+  margin: 0 10px;
 }
 
-.header .btn-getstarted:hover,
-.header .btn-getstarted:focus:hover {
-  color: var(--contrast-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 15%);
-}
-
-@media (max-width: 1200px) {
-  .header .logo {
-    order: 1;
-  }
-
-  .header .btn-getstarted {
-    order: 2;
-    margin: 0 15px 0 0;
-    padding: 6px 20px;
-  }
-
-  .header .navmenu {
-    order: 3;
-  }
-}
-
-.scrolled .header {
-  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Index Page Header
-------------------------------*/
+/* Index Page Header 特殊样式 */
 .index-page .header {
   background: transparent;
   border-bottom: none;
-  --heading-color: #ffffff;
-  --nav-color: rgba(255, 255, 255, 0.5);
-  --nav-hover-color: #ffffff;
 }
 
-/* Index Page Header on Scroll
-------------------------------*/
 .index-page.scrolled .header {
+  height: 70px;
   background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  --heading-color: #32353a;
-  --nav-color: #3a3939;
-  --nav-hover-color: #e84545;
+}
+
+/* 移动端响应式优化 */
+@media (max-width: 1199px) {
+  .header {
+    height: 60px;
+    padding: 0 10px;
+  }
+
+  .header .logo {
+    margin-right: 15px;
+  }
+
+  .header .btn-getstarted {
+    padding: 5px 12px;
+    margin: 0 8px;
+  }
+
+  .mobile-nav-toggle {
+    font-size: 24px;
+  }
 }
 
 /* 暗色模式支持 */
 @media (prefers-color-scheme: dark) {
   .index-page.scrolled .header {
     background: rgba(26, 31, 37, 0.85);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -3252,4 +3251,108 @@ section,
   .index-page.scrolled .header .mobile-nav-toggle {
     color: var(--default-color);
   }
+}
+
+.user-menu {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 6px;
+}
+
+.user-avatar {
+    width: 28px; /* 减小头像尺寸 */
+    height: 28px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.merchant-name {
+    font-size: 13px; /* 减小商户名称字体 */
+    margin-left: 4px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.98);
+    min-width: 180px; /* 减小下拉框宽度 */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    z-index: 1000;
+    right: 0;
+    top: 100%;
+    margin-top: 5px;
+    padding: 8px; /* 减小内边距 */
+    border-radius: 6px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-content p {
+    margin: 4px 0; /* 减小段落间距 */
+    color: var(--default-color);
+    font-size: 12px; /* 减小文字大小 */
+    line-height: 1.4;
+    padding: 4px 8px;
+}
+
+.dropdown-content p strong {
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-right: 4px;
+}
+
+#logoutButton {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 6px 12px; /* 减小按钮内边距 */
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 12px; /* 减小按钮文字大小 */
+    margin-top: 6px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+#logoutButton:hover {
+    background-color: #d32f2f;
+}
+
+/* 滚动状态下的样式调整 */
+.index-page.scrolled .header .merchant-name {
+    color: var(--default-color);
+}
+
+/* 暗色模式适配 */
+@media (prefers-color-scheme: dark) {
+    .dropdown-content {
+        background-color: rgba(33, 37, 41, 0.95);
+        border-color: rgba(255, 255, 255, 0.05);
+    }
+    
+    .dropdown-content p {
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .dropdown-content p strong {
+        color: #fff;
+    }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .merchant-name {
+        display: none; /* 在移动端隐藏商户名称 */
+    }
+    
+    .dropdown-content {
+        right: -10px; /* 调整移动端下拉框位置 */
+    }
 }

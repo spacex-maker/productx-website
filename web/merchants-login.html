@@ -88,12 +88,12 @@
     /* 主要内容区域 */
     .merchant-auth {
         width: 100%;
-        max-width: 600px;
-        margin: 0 20px;
+        max-width: 1000px;
+        margin: 0 auto;
         background: rgba(255, 255, 255, 0.15);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        padding: 25px;
+        padding: 50px;
         border-radius: 12px;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     }
@@ -121,6 +121,9 @@
     }
 
     .merchant-auth-form {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 30px;
         display: none;
         opacity: 0;
         transform: translateY(10px) scale(0.98);
@@ -220,9 +223,9 @@
     /* 响应式调整 */
     @media (max-width: 768px) {
         .merchant-auth {
-            max-width: 560px;
-            margin: 0 15px;
-            padding: 20px;
+            max-width: calc(100% - 40px);
+            margin: 0 20px;
+            padding: 30px;
         }
         
         .form-control {
@@ -458,7 +461,7 @@
     /* 输入框容器宽度相应调整 */
     .merchant-form-group {
         width: 100%;
-        margin-bottom: 12px;
+        margin-bottom: 20px;
     }
 
     /* 表单容器调整 */
@@ -472,6 +475,8 @@
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
+        const BASE_URL = 'http://127.0.0.1:8080';
+
         // 表单切换功能
         const tabs = document.querySelectorAll('.merchant-auth-tab');
         const forms = document.querySelectorAll('.merchant-auth-form');
@@ -513,6 +518,104 @@
                 this.classList.toggle('bi-eye-slash');
             });
         });
+
+        // 登录请求
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const contactPhone = document.getElementById('loginPhone').value;
+            const password = document.getElementById('loginPassword').value;
+
+            fetch(`${BASE_URL}/base/repair-service-merchants/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ contactPhone, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // 存储完整的商户信息
+                    localStorage.setItem('merchantToken', data.data.token);
+                    // 存储商户详细信息
+                    const merchantInfo = {
+                        id: data.data.id,
+                        merchantName: data.data.merchantName,
+                        contactPerson: data.data.contactPerson,
+                        contactPhone: data.data.contactPhone,
+                        contactEmail: data.data.contactEmail,
+                        merchantLogo: data.data.merchantLogo,
+                        pendingOrders: data.data.pendingOrders,
+                        rating: data.data.rating,
+                        status: data.data.status,
+                        vipLevel: data.data.vipLevel
+                    };
+                    localStorage.setItem('merchantInfo', JSON.stringify(merchantInfo));
+                    
+                    // 登录成功后跳转到首页
+                    window.location.href = 'index.html';
+                } else {
+                    alert('登录失败: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('登录请求失败');
+            });
+        });
+
+        // 注册请求
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const merchantName = document.getElementById('merchantName').value;
+            const contactPerson = document.getElementById('contactPerson').value;
+            const contactPhone = document.getElementById('contactPhone').value;
+            const contactEmail = document.getElementById('contactEmail').value;
+            const password = document.getElementById('password').value;
+
+            fetch(`${BASE_URL}/base/repair-service-merchants/register`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    merchantName, 
+                    contactPerson, 
+                    contactPhone, 
+                    contactEmail, 
+                    password 
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('注册成功，请登录');
+                    // 注册成功后切换到登录表单
+                    document.querySelector('[data-target="login"]').click();
+                } else {
+                    alert('注册失败: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('注册请求失败');
+            });
+        });
+
+        // 修改 token 验证函数
+        function checkAuth() {
+            const token = localStorage.getItem('merchantToken');
+            const currentPath = window.location.pathname;
+            
+            // 如果已登录且当前在登录页面，则跳转到首页
+            if (token && currentPath.includes('merchants-login.html')) {
+                window.location.href = 'index.html';
+            }
+            // 如果未登录且不在登录页面，则不做跳转
+        }
+
+        // 页面加载时检查登录状态
+        checkAuth();
     });
     </script>
 </body>
