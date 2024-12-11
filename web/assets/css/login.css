@@ -34,7 +34,7 @@ section,
 }
 
 body {
-  background-image: url('https://px-1258150206.cos.ap-nanjing.myqcloud.com/protx/website/5d34d1022760c676e48d306f471dd6c77ad85b05e42e454c6bb83ce46ec75cdf.png');
+  background-image: url('https://px-1258150206.cos.ap-nanjing.myqcloud.com/protx/website/a0e8d4cf04386308029b162183d5b9dc3fbb92b19d884c2293e01597d8112cd6.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -385,30 +385,38 @@ body {
 .social-login {
   margin-top: 24px;
   text-align: center;
+  position: relative;
 }
 
 .divider {
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 20px 0;
+  gap: 15px;
 }
 
-.divider span {
-  background: rgba(0, 0, 0, 0.7);
-  padding: 0 12px;
-  color: #ffffff;
-  font-size: 12px;
-  position: relative;
-  z-index: 1;
-}
-
-.divider::before {
+/* 左右分割线 */
+.divider::before,
+.divider::after {
   content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 100%;
+  flex: 1;
   height: 1px;
-  background: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.05)
+  );
+}
+
+/* 中间文字样式 */
+.divider span {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 0 5px;
 }
 
 .social-buttons {
