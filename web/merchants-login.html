@@ -20,7 +20,93 @@
     <!-- Main CSS Files -->
     <link href="assets/css/login.css" rel="stylesheet">
 </head>
+<style>
+    body {
+        background-image: url(https://px-1258150206.cos.ap-nanjing.myqcloud.com/protx/website/57078fd10a791a8ce022643246c3fb9969b242f2c9b3f3f646968d4d3009f2a7.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        position: fixed;
+        width: 100%;
+    }
 
+    .auth-container {
+        opacity: 0.2;
+        animation: fadeIn 1.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0.2;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* 移动端不使用动画效果 */
+    @media (max-width: 768px) {
+        .auth-container {
+            opacity: 1;
+            animation: none;
+        }
+    }
+
+    /* 仅在桌面端（宽度大于768px）应用透明效果 */
+    @media (min-width: 768px) {
+        .auth-container {
+            opacity: 0.2;
+            transition: opacity 0.3s ease;
+        }
+
+        .auth-container:hover {
+            opacity: 1;
+        }
+    }
+
+    /* 调整表单元素间距和大小 */
+    .form-group {
+        margin-bottom: 12px; /* 减小表单组之间的间距 */
+    }
+
+    .form-group label {
+        font-size: 12px;
+        margin-bottom: 4px; /* 减小标签和输入框之间的间距 */
+    }
+
+    .input-group {
+        height: 36px; /* 减小输入框高度 */
+    }
+
+    .input-group input {
+        height: 36px;
+        line-height: 36px;
+        font-size: 13px;
+    }
+
+    .input-group i {
+        line-height: 36px;
+    }
+
+    .auth-button {
+        height: 36px; /* 减小按钮高度 */
+        margin-top: 8px; /* 调整按钮上方间距 */
+    }
+
+    .form-options {
+        margin: 12px 0; /* 调整选项区域的间距 */
+    }
+
+    /* 调整密码强度指示器间距 */
+    .password-strength {
+        margin-top: 4px;
+    }
+
+    .password-match-indicator {
+        margin-top: 4px;
+    }
+</style>
 <body>
     <header id="header" class="header fixed-top">
         <div class="container-fluid">
@@ -268,6 +354,13 @@
                     setTimeout(() => {
                         container.style.height = '';
                     }, 300);
+
+                    // 切换背景图
+                    if (tab.dataset.form === 'loginForm') {
+                        document.body.style.backgroundImage = "url('https://px-1258150206.cos.ap-nanjing.myqcloud.com/protx/website/57078fd10a791a8ce022643246c3fb9969b242f2c9b3f3f646968d4d3009f2a7.png')";
+                    } else if (tab.dataset.form === 'registerForm') {
+                        document.body.style.backgroundImage = "url('https://px-1258150206.cos.ap-nanjing.myqcloud.com/protx/website/3d394b6932f2f024339586703ae2c46d68fe22f6af0a58ada0445b7f3fc5c751.png')";
+                    }
                 });
             });
 
