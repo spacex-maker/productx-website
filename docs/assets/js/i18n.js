@@ -96,6 +96,15 @@ class I18n {
     if (currentLangElement) {
       currentLangElement.textContent = languageNames[this.currentLang] || 'English';
     }
+
+    // 处理RTL
+    if (this.currentLang === 'ar') {
+      document.dir = 'rtl';
+      document.body.classList.add('rtl');
+    } else {
+      document.dir = 'ltr';
+      document.body.classList.remove('rtl');
+    }
   }
 
   initLanguageSelector() {
