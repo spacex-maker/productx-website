@@ -300,5 +300,18 @@
   "minPlotArea": "최소 대지 면적",
   "pricePerSqmComparison": "평방미터당 가격",
   "bedroomPriceRelation": "침실 수와 가격의 관계",
-  "propertyValueBubble": "물건 가치 분포"
+  "propertyValueBubble": "물건 가치 분포",
+  "statistics": "통계",
+  "dataAnalysis": "데이터 분석",
+  "viewStatistics": "통계 보기",
+  "statisticsDescription": "상세 시장 데이터 및 분석 보기",
+  "realEstateData": "부동산 데이터",
+  "moreData": "더 많은 데이터",
+  "transactionData": "거래 데이터 통계",
+  "marketAnalysis": "시장 분석 보고서",
+  "signIn": "로그인",
+  "merchantSignIn": "판매자 로그인",
+  "userSignIn": "사용자 로그인",
+  "merchantSignUp": "판매자 계정 등록",
+  "userSignUp": "사용자 계정 등록"
 }

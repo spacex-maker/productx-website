@@ -281,5 +281,18 @@
   "plotAreaUnit": "Plot Area",
   "maxAmount": "Maximum Amount",
   "minAmount": "Minimum Amount",
-  "avgAmount": "Average Amount"
+  "avgAmount": "Average Amount",
+  "statistics": "Statistics",
+  "dataAnalysis": "Data Analysis",
+  "viewStatistics": "View Statistics",
+  "statisticsDescription": "View detailed market data and analysis",
+  "realEstateData": "Real Estate Data",
+  "moreData": "More Data",
+  "transactionData": "Transaction Statistics",
+  "marketAnalysis": "Market Analysis",
+  "signIn": "Sign In",
+  "merchantSignIn": "Merchant Sign In",
+  "userSignIn": "User Sign In",
+  "merchantSignUp": "Register Merchant Account",
+  "userSignUp": "Register User Account"
 }

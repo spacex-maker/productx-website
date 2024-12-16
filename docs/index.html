@@ -1930,7 +1930,7 @@
             }
         }
 
-        /* 贵金属卡片特殊样式 */
+        /* 贵金属卡片特���样式 */
         .card-title {
             margin: 0 0 10px;
             color: #666;
@@ -2476,6 +2476,101 @@
                 min-width: 140px; /* 移动端更窄的下拉菜单 */
             }
         }
+
+        /* 语言切换按钮样式优化 */
+        .language-dropdown {
+          position: relative;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 50px;
+          padding: 5px 15px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(10px);
+          transition: all 0.3s ease;
+        }
+
+        .language-dropdown:hover {
+          background: rgba(255, 255, 255, 0.2);
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .language-dropdown button {
+          color: #fff;
+          background: transparent;
+          border: none;
+          padding: 8px 12px;
+          font-size: 14px;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .language-dropdown button:hover {
+          color: #4CAF50;
+        }
+
+        .language-dropdown .dropdown-menu {
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 15px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          padding: 10px 0;
+          min-width: 150px;
+        }
+
+        .language-dropdown .dropdown-item {
+          color: #333;
+          padding: 8px 20px;
+          font-size: 14px;
+          transition: all 0.2s ease;
+        }
+
+        .language-dropdown .dropdown-item:hover {
+          background: rgba(76, 175, 80, 0.1);
+          color: #4CAF50;
+        }
+
+        .language-dropdown .dropdown-item.active {
+          background: #4CAF50;
+          color: #fff;
+        }
+
+        /* 适配暗色模式 */
+        @media (prefers-color-scheme: dark) {
+          .language-dropdown {
+            background: rgba(0, 0, 0, 0.3);
+          }
+          
+          .language-dropdown:hover {
+            background: rgba(0, 0, 0, 0.4);
+          }
+          
+          .language-dropdown .dropdown-menu {
+            background: rgba(33, 33, 33, 0.95);
+          }
+          
+          .language-dropdown .dropdown-item {
+            color: #fff;
+          }
+          
+          .language-dropdown .dropdown-item:hover {
+            background: rgba(76, 175, 80, 0.2);
+          }
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+          .language-dropdown {
+            padding: 3px 10px;
+          }
+          
+          .language-dropdown button {
+            padding: 6px 8px;
+            font-size: 13px;
+          }
+        }
     </style>
 
     <!-- 在 head 中添加 Three.js -->
@@ -2587,27 +2682,27 @@
         <li><a href="index.html#contact" data-i18n="contact"></a></li>
         <!-- 在导航菜单中添加房地产数据统计的下拉菜单项 -->
         <li class="dropdown">
-          <a href="#"><span>数据统计</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <a href="#"><span data-i18n="statistics">数据统计</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul class="dropdown-menu">
-            <div class="dropdown-header">房地产数据</div>
+            <div class="dropdown-header" data-i18n="realEstateData">房地产数据</div>
             <li>
               <a href="dubai-estate.html">
                 <i class="bi bi-building"></i>
-                <span>迪拜房地产统计</span>
+                <span data-i18n="dubaiEstateStatistics">迪拜房地产统计</span>
               </a>
             </li>
             <div class="dropdown-divider"></div>
-            <div class="dropdown-header">更多数据</div>
+            <div class="dropdown-header" data-i18n="moreData">更多数据</div>
             <li>
               <a href="#">
                 <i class="bi bi-graph-up"></i>
-                <span>交易数据统计</span>
+                <span data-i18n="transactionData">交易数据统计</span>
               </a>
             </li>
             <li>
               <a href="#">
                 <i class="bi bi-pie-chart"></i>
-                <span>市场分析报告</span>
+                <span data-i18n="marketAnalysis">市场分析报告</span>
               </a>
             </li>
           </ul>
@@ -2649,21 +2744,21 @@
       <!-- 未登录状态 -->
       <div class="dropdown" id="authDropdown">
         <button class="btn-login dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="bi bi-person"></i> 登录
+          <i class="bi bi-person"></i> <span data-i18n="signIn"></span>
         </button>
         <ul class="login-dropdown dropdown-menu">
           <li><a class="dropdown-item" href="merchants-login.html">
-            <i class="bi bi-shop"></i> 商户登录
+            <i class="bi bi-shop"></i> <span data-i18n="merchantSignIn"></span>
           </a></li>
           <li><a class="dropdown-item" href="login.html">
-            <i class="bi bi-person"></i> 用户登录
+            <i class="bi bi-person"></i> <span data-i18n="userSignIn"></span>
           </a></li>
           <div class="dropdown-divider"></div>
           <li><a class="dropdown-item" href="merchants-login.html?tab=register">
-            <i class="bi bi-person-plus"></i> 注册商户账号
+            <i class="bi bi-person-plus"></i> <span data-i18n="merchantSignUp"></span>
           </a></li>
           <li><a class="dropdown-item" href="login.html?tab=register">
-            <i class="bi bi-person-plus"></i> 注册用户账号
+            <i class="bi bi-person-plus"></i> <span data-i18n="userSignUp"></span>
           </a></li>
         </ul>
       </div>
@@ -3788,7 +3883,7 @@
         <div class="container membership-plans">
             <div class="row g-4">
 
-                <!-- 月度会员 -->
+                <!-- 月度���员 -->
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="plan-card protx-plan-card">
                         <div class="plan-header">
@@ -3805,7 +3900,7 @@
                             </div>
                             <div class="feature-item">
                                 <i class="bi bi-check-circle"></i>
-                                <span data-i18n="prioritySupport">优先客服支持</span>
+                                <span data-i18n="prioritySupport">优先客服支��</span>
                             </div>
                             <div class="feature-item">
                                 <i class="bi bi-check-circle"></i>
@@ -3966,7 +4061,7 @@
 
         <div class="container section-title" data-aos="fade-up">
             <h2 data-i18n="memberBenefits">会员特权</h2>
-            <p data-i18n="memberBenefitsDescription">解锁更多专属权益，享受优质购物体验</p>
+            <p data-i18n="memberBenefitsDescription">解锁更多专属权益，享受优质购物体��</p>
         </div>
 
         <div class="container">

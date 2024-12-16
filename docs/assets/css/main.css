@@ -3408,3 +3408,56 @@ section,
   color: #fff;
   background: #45a049;
 }
+
+/* 语言切换按钮样式 */
+.header .language-selector {
+  margin-left: 15px;
+  position: relative;
+}
+
+.header .language-selector .btn {
+  background: var(--surface-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--default-color);
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.header .language-selector .btn:hover {
+  background: color-mix(in srgb, var(--surface-color), transparent 10%);
+  border-color: rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.header .language-selector .dropdown-menu {
+  min-width: 120px;
+  padding: 8px 0;
+  margin-top: 8px;
+  background: var(--surface-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.header .language-selector .dropdown-item {
+  padding: 8px 16px;
+  font-size: 14px;
+  color: var(--default-color);
+  transition: all 0.2s ease;
+}
+
+.header .language-selector .dropdown-item:hover {
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--accent-color);
+}
+
+.header .language-selector .dropdown-item.active {
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--accent-color);
+  font-weight: 500;
+}
