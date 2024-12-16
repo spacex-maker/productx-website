@@ -273,10 +273,13 @@
   "buildingAreaDistribution": "Building Area Distribution",
   "bedroomCountDistribution": "Bedroom Count Distribution",
   "plotAreaDistribution": "Plot Area Distribution",
-  "totalAmountUnit": "Total Amount (k AED)",
-  "averagePriceUnit": "Average Price (k AED)",
-  "propertyCountUnit": "Property Count (Units)",
-  "buildingAreaUnit": "Building Area (㎡)",
+  "totalAmountUnit": "Total Amount",
+  "averagePriceUnit": "Average Price",
+  "propertyCountUnit": "Property Count",
+  "buildingAreaUnit": "Building Area",
   "bedroomUnit": "Bedroom Count",
-  "plotAreaUnit": "Plot Area (㎡)"
+  "plotAreaUnit": "Plot Area",
+  "maxAmount": "Maximum Amount",
+  "minAmount": "Minimum Amount",
+  "avgAmount": "Average Amount"
 }
