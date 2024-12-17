@@ -204,7 +204,7 @@
             }
         }
 
-        /* 原有样式保持不变，添��地图相关样式 */
+        /* 原有样式保持不变，添地图相关样式 */
         .continent {
             fill: #2B3F6B;
             stroke: #ffffff;
@@ -541,7 +541,7 @@
         }
 
         .pricing .pricing-item .buy-btn {
-            padding: 6px 20px; /* 减小按钮内边距 */
+            padding: 6px 20px; /* 减小���钮内边距 */
             font-size: 13px; /* 减小按钮字体 */
             margin-top: 10px;
         }
@@ -579,7 +579,7 @@
         /* 会员套餐模块样式优化 - 添加玻璃磨砂效果 */
         .plan-card {
             background: rgba(255, 255, 255, 0.2); /* 明 */
-            backdrop-filter: blur(10px); /* 添���模糊效果 */
+            backdrop-filter: blur(10px); /* 添加模糊效果 */
             -webkit-backdrop-filter: blur(10px); /* Safari 支持 */
             border: 1px solid rgba(255, 255, 255, 0.3); /* 添加透明边框 */
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); /* 柔和的阴影 */
@@ -857,7 +857,7 @@
             color: #4CAF50;
         }
 
-        /* 下拉菜单标题 */
+        /* 下拉菜单标�� */
         .dropdown-header {
             color: #666;
             font-size: 11px;
@@ -1930,7 +1930,7 @@
             }
         }
 
-        /* 贵金属卡片特���样式 */
+        /* 贵金属卡片特��������式 */
         .card-title {
             margin: 0 0 10px;
             color: #666;
@@ -2570,6 +2570,38 @@
             padding: 6px 8px;
             font-size: 13px;
           }
+        }
+
+        /* 移动端图表布局调整 */
+        @media (max-width: 768px) {
+          .chart-container {
+            width: 100% !important; /* 强制宽度100% */
+            flex: 0 0 100% !important; /* 禁止缩放 */
+            max-width: 100% !important;
+            margin-bottom: 20px; /* 图表之间的间距 */
+          }
+
+          /* 确保图表容器高度合适 */
+          .chart-wrapper {
+            height: 300px; /* 移动端图表高度 */
+            margin-bottom: 15px;
+          }
+
+          /* 调整图表标题和内容的间距 */
+          .chart-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+          }
+
+          /* 图表容器内边距调整 */
+          .chart-box {
+            padding: 10px;
+          }
+        }
+
+        /* 确保图表响应式布局 */
+        .chart-container {
+          transition: all 0.3s ease;
         }
     </style>
 
@@ -3230,7 +3262,7 @@
                             </div>
                             <div class="data-info">
                                 <h3>17,400,000,000</h3>
-                                <p>年度正回收量(千克)</p>
+                                <p>年度��回收量(千克)</p>
                                 <div class="trend warning">
                                     <i class="bi bi-pie-chart"></i>
                                     <span>仅占总量17.4%</span>
@@ -4471,7 +4503,7 @@
                 .then(data => {
                     if (data.success) {
                         const container = document.getElementById('partners-container');
-                        const partners = data.data.filter(partner => partner.status);
+                        const partners = data.filter(partner => partner.status);
                         const partnersHTML = partners.map(partner => `
                             <div class="col-lg-2 col-md-4 col-6">
                                 <a href="${partner.websiteUrl}" target="_blank">
