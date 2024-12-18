@@ -323,7 +323,7 @@
     async function fetchLocations() {
       try {
         console.log('开始获取位置列表...');
-        const response = await fetch('http://127.0.0.1:8090/manage/base/web/location/list');
+        const response = await fetch('https://protx.cn/manage/base/web/location/list');
         const result = await response.json();
         
         if (result.success) {
@@ -385,7 +385,7 @@
           .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
           .join('&');
         
-        const url = `http://127.0.0.1:8090/manage/base/web/estate-stats-location?${queryString}`;
+        const url = `https://protx.cn/manage/base/web/estate-stats-location?${queryString}`;
         console.log('请求URL:', url);
         
         const response = await fetch(url, {
