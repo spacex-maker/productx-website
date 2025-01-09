@@ -319,60 +319,52 @@
             // 表单切换功能
             const tabs = document.querySelectorAll('.auth-tab');
             const forms = document.querySelectorAll('.auth-form');
-            
+
+            // 获取 URL 参数判断是显示登录还是注册表单
+            const urlParams = new URLSearchParams(window.location.search);
+            const tab = urlParams.get('tab');
+
+            // 定义切换表单的函数
+            function switchForm(formName) {
+                // 更新 URL 参数但不刷新页面
+                const newUrl = new URL(window.location.href);
+                newUrl.searchParams.set('tab', formName === 'loginForm' ? 'login' : 'register');
+                window.history.pushState({}, '', newUrl);
+
+                // 移除所有标签的活动状态
+                tabs.forEach(t => t.classList.remove('active'));
+                const activeTab = document.querySelector(`[data-form="${formName}"]`);
+                if (activeTab) {
+                    activeTab.classList.add('active');
+                }
+
+                // 切换表单显示
+                forms.forEach(form => {
+                    form.classList.remove('active');
+                });
+                document.getElementById(formName).classList.add('active');
+
+                // 切换背景图
+                if (formName === 'loginForm') {
+                    document.body.style.backgroundImage = "url('https://px-1258150206.cos.ap-nanjing.myqcloud.com/protx/website/57078fd10a791a8ce022643246c3fb9969b242f2c9b3f3f646968d4d3009f2a7.png')";
+                } else if (formName === 'registerForm') {
+                    document.body.style.backgroundImage = "url('https://px-1258150206.cos.ap-nanjing.myqcloud.com/protx/website/3d394b6932f2f024339586703ae2c46d68fe22f6af0a58ada0445b7f3fc5c751.png')";
+                }
+            }
+
+            // 初始化时根据 URL 参数切换表单
+            if (tab === 'register') {
+                switchForm('registerForm');
+            } else {
+                switchForm('loginForm');
+            }
+
+            // 为标签添加点击事件
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
-                    // 移除所有标签的活动状态
-                    tabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    
-                    const targetForm = document.getElementById(tab.dataset.form);
-                    const container = document.querySelector('.auth-form-container');
-                    
-                    // 获取目标表单的高度
-                    targetForm.style.position = 'absolute';
-                    targetForm.style.visibility = 'hidden';
-                    targetForm.classList.add('active');
-                    const height = targetForm.offsetHeight;
-                    targetForm.classList.remove('active');
-                    targetForm.style.position = '';
-                    targetForm.style.visibility = '';
-                    
-                    // 设置容器高度动画
-                    container.style.height = container.offsetHeight + 'px';
-                    requestAnimationFrame(() => {
-                        container.style.height = height + 'px';
-                        
-                        // 切换表单显示
-                        forms.forEach(form => {
-                            form.classList.remove('active');
-                        });
-                        targetForm.classList.add('active');
-                    });
-                    
-                    // 动画结束后清除高度
-                    setTimeout(() => {
-                        container.style.height = '';
-                    }, 300);
-
-                    // 切换背景图
-                    if (tab.dataset.form === 'loginForm') {
-                        document.body.style.backgroundImage = "url('https://px-1258150206.cos.ap-nanjing.myqcloud.com/protx/website/57078fd10a791a8ce022643246c3fb9969b242f2c9b3f3f646968d4d3009f2a7.png')";
-                    } else if (tab.dataset.form === 'registerForm') {
-                        document.body.style.backgroundImage = "url('https://px-1258150206.cos.ap-nanjing.myqcloud.com/protx/website/3d394b6932f2f024339586703ae2c46d68fe22f6af0a58ada0445b7f3fc5c751.png')";
-                    }
+                    switchForm(tab.dataset.form);
                 });
             });
-
-            // 初始化容器高度
-            const activeForm = document.querySelector('.auth-form.active');
-            if (activeForm) {
-                const container = document.querySelector('.auth-form-container');
-                container.style.height = activeForm.offsetHeight + 'px';
-                setTimeout(() => {
-                    container.style.height = '';
-                }, 100);
-            }
 
             // 密码显示切换
             const toggles = document.querySelectorAll('.toggle-password');
