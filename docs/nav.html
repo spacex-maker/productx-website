@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>综合导航 - ProTX Team</title>
+    <meta name="description" content="迪拜综合服务导航平台，为访客、投资者和居民提供全方位信息服务">
+    <meta name="keywords" content="迪拜,导航,服务,投资,生活">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <!-- 页面特定样式 -->
+    <style>
+        /* Hero 相关样式 */
+        .hero {
+            width: 100%;
+            position: relative;
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url("../assets/img/hero-bg.jpg") center center;
+            background-size: cover;
+            padding: 60px 0;
+            min-height: 100vh;
+        }
+
+        .hero h1 {
+            margin-bottom: 20px;
+            font-size: 48px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .hero .lead {
+            font-size: 1.25rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* 导航卡片样式 */
+        .navigation-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navigation-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(76, 175, 80, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .card-icon i {
+            font-size: 28px;
+            color: #4CAF50;
+        }
+
+        .navigation-card h3 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-list li {
+            margin-bottom: 10px;
+        }
+
+        .nav-list a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .nav-list a i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .nav-list a:hover {
+            color: #4CAF50;
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .navigation-card {
+                padding: 20px;
+            }
+            
+            .card-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .card-icon i {
+                font-size: 24px;
+            }
+            
+            .navigation-card h3 {
+                font-size: 18px;
+            }
+        }
+
+        /* Header 登录按钮样式 */
+        .btn-login {
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-login:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .btn-login i {
+            font-size: 16px;
+        }
+
+        /* 用户信息按钮样式 */
+        .btn-user {
+            padding: 6px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-user:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .btn-user img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+
+        /* 登录下拉菜单样式 */
+        .login-dropdown {
+            min-width: 200px;
+            padding: 8px;
+            border: none;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        .login-dropdown .dropdown-item {
+            padding: 8px 16px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .login-dropdown .dropdown-item:hover {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+        }
+
+        .login-dropdown .dropdown-item i {
+            font-size: 16px;
+        }
+
+        /* 子菜单样式 */
+        .nav-list .submenu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            min-width: 250px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            list-style: none;
+        }
+
+        .nav-list li {
+            position: relative;
+        }
+
+        .nav-list li:hover > .submenu {
+            display: block;
+        }
+
+        .submenu .dropdown-header {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85em;
+            font-weight: 600;
+            padding: 8px 16px;
+            text-transform: uppercase;
+        }
+
+        .submenu .dropdown-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 8px 0;
+        }
+
+        .submenu li a {
+            padding: 8px 16px;
+            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+        }
+
+        .submenu li a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #4CAF50;
+        }
+
+        /* 确保父级菜单项显示箭头 */
+        .nav-list a.has-submenu {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-list a.has-submenu i.bi-chevron-right {
+            margin-left: 8px;
+        }
+
+        /* 模态框样式 */
+        .modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 20px;
+        }
+
+        .modal-header {
+            padding: 20px 30px;
+        }
+
+        .modal-body {
+            padding: 0 30px 30px;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* 服务类别样式 */
+        .service-category {
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            height: 100%;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .category-title {
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-title i {
+            color: #4CAF50;
+        }
+
+        /* 服务项目样式 */
+        .service-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px;
+            border-radius: 10px;
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+        }
+
+        .service-item i {
+            font-size: 1.5rem;
+            color: #4CAF50;
+        }
+
+        .service-item div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-item strong {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .service-item small {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top">
+        <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <h1 class="sitename">Pro<span class="highlight">TX</span></h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html#hero" class="active" data-i18n="home"></a></li>
+                    <li><a href="index.html#about" data-i18n="aboutUs"></a></li>
+                    <li class="dropdown">
+                        <a href="#"><span data-i18n="categories">商品分类</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul class="dropdown-menu">
+                            <div class="dropdown-header">热门分类</div>
+                            <li><a href="#"><i class="bi bi-phone"></i><span data-i18n="electronics">电子产品</span></a></li>
+                            <li><a href="#"><i class="bi bi-handbag"></i><span data-i18n="fashion">服饰箱包</span></a></li>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-header">家居生活</div>
+                            <li><a href="#"><i class="bi bi-tv"></i><span data-i18n="homeAppliances">家用电器</span></a></li>
+                            <li><a href="#"><i class="bi bi-house"></i><span data-i18n="furniture">家具家居</span></a></li>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-header">文体娱乐</div>
+                            <li><a href="#"><i class="bi bi-book"></i><span data-i18n="books">图书文具</span></a></li>
+                            <li><a href="#"><i class="bi bi-bicycle"></i><span data-i18n="sports">运动户外</span></a></li>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-header">精品收藏</div>
+                            <li><a href="#"><i class="bi bi-gem"></i><span data-i18n="luxury">奢侈品</span></a></li>
+                            <li><a href="#"><i class="bi bi-trophy"></i><span data-i18n="collectibles">收藏品</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#portfolio" data-i18n="portfolio"></a></li>
+                    <li class="dropdown">
+                        <a href="#"><span data-i18n="services">增值服务</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul class="dropdown-menu">
+                            <!-- 在第一个分组添加综合导航 -->
+                            <div class="dropdown-header">综合服务</div>
+                            <li>
+                                <a href="nav.html">
+                                    <i class="bi bi-grid"></i>
+                                    <span>综合导航</span>
+                                </a>
+                            </li>
+                            <div class="dropdown-divider"></div>
+                            
+                            <!-- 原有的服务分组 -->
+                            <div class="dropdown-header">交易服务</div>
+                            <li>
+                                <a href="#">
+                                    <i class="bi bi-shield-check"></i>
+                                    <span data-i18n="authentication">鉴定服务</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="bi bi-recycle"></i>
+                                    <span data-i18n="recycling">回收服务</span>
+                                </a>
+                            </li>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-header">增值服务</div>
+                            <li><a href="#"><i class="bi bi-tools"></i><span data-i18n="maintenance">维修保养</span></a></li>
+                            <li><a href="#"><i class="bi bi-truck"></i><span data-i18n="logistics">物流配送</span></a></li>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-header">金融服务</div>
+                            <li><a href="#"><i class="bi bi-umbrella"></i><span data-i18n="insurance">交易保险</span></a></li>
+                            <li><a href="#"><i class="bi bi-credit-card"></i><span data-i18n="financing">分期付款</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#"><span data-i18n="community">社区中心</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul class="dropdown-menu">
+                            <div class="dropdown-header">社区交流</div>
+                            <li><a href="#"><i class="bi bi-chat-dots"></i><span data-i18n="forum">交流论坛</span></a></li>
+                            <li><a href="#"><i class="bi bi-journal-text"></i><span data-i18n="blog">经验分享</span></a></li>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-header">新手帮助</div>
+                            <li><a href="#"><i class="bi bi-book"></i><span data-i18n="guide">新手指南</span></a></li>
+                            <li><a href="#"><i class="bi bi-search"></i><span data-i18n="evaluation">商品测评</span></a></li>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-header">成功案例</div>
+                            <li><a href="#"><i class="bi bi-trophy"></i><span data-i18n="stories">成功案例</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#"><span data-i18n="help">帮助中心</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul class="dropdown-menu">
+                            <div class="dropdown-header">常见问题</div>
+                            <li><a href="#"><i class="bi bi-question-circle"></i><span data-i18n="faq">常见问题</span></a></li>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-header">交易指南</div>
+                            <li><a href="#"><i class="bi bi-cart-check"></i><span data-i18n="buyerGuide">买家指南</span></a></li>
+                            <li><a href="#"><i class="bi bi-shop"></i><span data-i18n="sellerGuide">卖家指南</span></a></li>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-header">平台规则</div>
+                            <li><a href="#"><i class="bi bi-file-text"></i><span data-i18n="rules">平台规则</span></a></li>
+                            <li><a href="#"><i class="bi bi-shield-check"></i><span data-i18n="security">安全保障</span></a></li>
+                            <li><a href="#"><i class="bi bi-chat-left-dots"></i><span data-i18n="feedback">意见反馈</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#contact" data-i18n="contact"></a></li>
+                    <!-- 在导航菜单中添加房地产数据统计的下拉菜单项 -->
+                    <li class="dropdown">
+                        <a href="#"><span data-i18n="statistics">数据统计</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul class="dropdown-menu">
+                            <div class="dropdown-header" data-i18n="realEstateData">房地产数据</div>
+                            <li>
+                                <a href="dubai-estate.html">
+                                    <i class="bi bi-building"></i>
+                                    <span data-i18n="dubaiEstateStatistics">迪拜房地产统计</span>
+                                </a>
+                            </li>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-header" data-i18n="moreData">更多数据</div>
+                            <li>
+                                <a href="#">
+                                    <i class="bi bi-graph-up"></i>
+                                    <span data-i18n="transactionData">交易数据统计</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="bi bi-pie-chart"></i>
+                                    <span data-i18n="marketAnalysis">市场分析报告</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+
+            <!-- 只添加下载按钮 -->
+            <a href="download.html" class="btn-download">
+                <i class="bi bi-download"></i>
+                <span>下载APP</span>
+            </a>
+
+            <!-- 现有的语言选择器 -->
+            <div class="language-selector">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-globe"></i>
+                        <span class="current-lang"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" data-lang="ar">العربية</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang="de">Deutsch</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang="es">Español</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang="fr">Français</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang="it">Italiano</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang="ja">日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang="ko">한국어</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang="ru">Русский</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang="zh">中文</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 登录/用户信息部分 -->
+            <div class="auth-buttons ms-3">
+                <!-- 未登录状态 -->
+                <div class="dropdown" id="authDropdown">
+                    <button class="btn-login dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person"></i> <span data-i18n="signIn"></span>
+                    </button>
+                    <ul class="login-dropdown dropdown-menu">
+                        <li><a class="dropdown-item" href="merchants-login.html">
+                            <i class="bi bi-shop"></i> <span data-i18n="merchantSignIn"></span>
+                        </a></li>
+                        <li><a class="dropdown-item" href="login.html">
+                            <i class="bi bi-person"></i> <span data-i18n="userSignIn"></span>
+                        </a></li>
+                        <div class="dropdown-divider"></div>
+                        <li><a class="dropdown-item" href="merchants-login.html?tab=register">
+                            <i class="bi bi-person-plus"></i> <span data-i18n="merchantSignUp"></span>
+                        </a></li>
+                        <li><a class="dropdown-item" href="login.html?tab=register">
+                            <i class="bi bi-person-plus"></i> <span data-i18n="userSignUp"></span>
+                        </a></li>
+                    </ul>
+                </div>
+
+                <!-- 登录后状态 -->
+                <div id="userInfo" class="d-none">
+                    <div class="dropdown">
+                        <button class="btn-user dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <img src="assets/img/default-avatar.png" alt="User">
+                            <span class="merchant-name">商户名称</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i>商户信息</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i>账户设置</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn"><i class="bi bi-box-arrow-right"></i>退出登录</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 text-white mb-4" data-aos="fade-up">迪拜综合服务导航平台</h1>
+                    <p class="lead text-white-50 mb-5" data-aos="fade-up" data-aos-delay="100">
+                        为访客、投资者和居民提供迪拜政府、商务、生活等全方位信息服务
+                    </p>
+                </div>
+            </div>
+
+            <!-- 主要导航卡片 -->
+            <div class="row g-4 mt-2">
+                <!-- 政府服务 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="navigation-card">
+                        <div class="card-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <h3>政府服务</h3>
+                        <ul class="nav-list">
+                            <li><a href="https://www.dubai.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 迪拜政府门户</a></li>
+                            <li><a href="https://www.gdrfad.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 签证服务</a></li>
+                            <li><a href="https://www.dewa.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 水电服务</a></li>
+                            <li><a href="https://www.dm.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 市政服务</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 投资服务 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="navigation-card">
+                        <div class="card-icon">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <h3>投资服务</h3>
+                        <ul class="nav-list">
+                            <li><a href="https://invest.dubai.ae" target="_blank"><i class="bi bi-chevron-right"></i> 投资指南</a></li>
+                            <li><a href="https://ded.ae" target="_blank"><i class="bi bi-chevron-right"></i> 公司注册</a></li>
+                            <li><a href="https://freezones.ae" target="_blank"><i class="bi bi-chevron-right"></i> 自贸区服务</a></li>
+                            <li><a href="https://dubailand.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 房产服务</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 商务服务 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="navigation-card">
+                        <div class="card-icon">
+                            <i class="bi bi-briefcase"></i>
+                        </div>
+                        <h3>商务服务</h3>
+                        <ul class="nav-list">
+                            <li><a href="business-consulting.html"><i class="bi bi-chevron-right"></i> 商业咨询</a></li>
+                            <li><a href="bank-account.html"><i class="bi bi-chevron-right"></i> 银行开户</a></li>
+                            <li><a href="trade-services.html"><i class="bi bi-chevron-right"></i> 贸易服务</a></li>
+                            <li><a href="market-analysis.html"><i class="bi bi-chevron-right"></i> 市场分析</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 生活服务 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="navigation-card">
+                        <div class="card-icon">
+                            <i class="bi bi-house-heart"></i>
+                        </div>
+                        <h3>生活服务</h3>
+                        <ul class="nav-list">
+                            <li><a href="https://www.rta.ae" target="_blank"><i class="bi bi-chevron-right"></i> 交通出行</a></li>
+                            <li><a href="https://www.dha.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 医疗服务</a></li>
+                            <li><a href="https://www.khda.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 教育服务</a></li>
+                            <li><a href="https://dxbpp.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 警察服务</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 旅游观光 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="navigation-card">
+                        <div class="card-icon">
+                            <i class="bi bi-airplane"></i>
+                        </div>
+                        <h3>旅游观光</h3>
+                        <ul class="nav-list">
+                            <li><a href="https://www.visitdubai.com" target="_blank"><i class="bi bi-chevron-right"></i> 迪拜旅游</a></li>
+                            <li><a href="https://www.dubaiairports.ae" target="_blank"><i class="bi bi-chevron-right"></i> 机场服务</a></li>
+                            <li><a href="https://www.emirates.com" target="_blank"><i class="bi bi-chevron-right"></i> 航空服务</a></li>
+                            <li><a href="https://www.dtcm.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 旅游局</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 商业机遇 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="navigation-card">
+                        <div class="card-icon">
+                            <i class="bi bi-lightbulb"></i>
+                        </div>
+                        <h3>商业机遇</h3>
+                        <ul class="nav-list">
+                            <li><a href="https://www.expo2020dubai.com" target="_blank"><i class="bi bi-chevron-right"></i> 世博会</a></li>
+                            <li><a href="https://dubaiexportal.ae" target="_blank"><i class="bi bi-chevron-right"></i> 出口门户</a></li>
+                            <li><a href="https://www.dmcc.ae" target="_blank"><i class="bi bi-chevron-right"></i> 商品交易</a></li>
+                            <li><a href="https://www.dafz.ae" target="_blank"><i class="bi bi-chevron-right"></i> 自贸区</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 添加模态框 -->
+    <div class="modal fade" id="publicServicesModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">迪拜水电局(DEWA)服务导航</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <!-- 新用户服务 -->
+                        <div class="col-md-6">
+                            <div class="service-category">
+                                <h6 class="category-title"><i class="bi bi-person-plus"></i> 新用户服务</h6>
+                                <div class="category-content">
+                                    <a href="https://www.dewa.gov.ae/en/consumer/get-started/activate-deactivate" class="service-item" target="_blank">
+                                        <i class="bi bi-plug"></i>
+                                        <div>
+                                            <strong>新用户开通</strong>
+                                            <small>首次申请水电服务</small>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.dewa.gov.ae/en/consumer/billing/security-deposit" class="service-item" target="_blank">
+                                        <i class="bi bi-safe"></i>
+                                        <div>
+                                            <strong>押金缴纳</strong>
+                                            <small>缴纳服务押金</small>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.dewa.gov.ae/en/consumer/get-started" class="service-item" target="_blank">
+                                        <i class="bi bi-journal-text"></i>
+                                        <div>
+                                            <strong>开户指南</strong>
+                                            <small>新用户开户流程</small>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 日常服务 -->
+                        <div class="col-md-6">
+                            <div class="service-category">
+                                <h6 class="category-title"><i class="bi bi-house-gear"></i> 日常服务</h6>
+                                <div class="category-content">
+                                    <a href="https://www.dewa.gov.ae/en/consumer/get-started/move-in" class="service-item" target="_blank">
+                                        <i class="bi bi-box-arrow-in-right"></i>
+                                        <div>
+                                            <strong>入住过户</strong>
+                                            <small>租房水电过户</small>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.dewa.gov.ae/en/consumer/get-started/move-out" class="service-item" target="_blank">
+                                        <i class="bi bi-box-arrow-right"></i>
+                                        <div>
+                                            <strong>迁出结算</strong>
+                                            <small>终止水电服务</small>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.dewa.gov.ae/en/consumer/services-and-maintenance" class="service-item" target="_blank">
+                                        <i class="bi bi-tools"></i>
+                                        <div>
+                                            <strong>维修服务</strong>
+                                            <small>设备维修保养</small>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 账单中心 -->
+                        <div class="col-md-6">
+                            <div class="service-category">
+                                <h6 class="category-title"><i class="bi bi-receipt"></i> 账单中心</h6>
+                                <div class="category-content">
+                                    <a href="https://www.dewa.gov.ae/en/consumer/billing/my-bills" class="service-item" target="_blank">
+                                        <i class="bi bi-file-text"></i>
+                                        <div>
+                                            <strong>账单查询</strong>
+                                            <small>查看历史账单</small>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.dewa.gov.ae/en/consumer/billing/payment-methods" class="service-item" target="_blank">
+                                        <i class="bi bi-credit-card"></i>
+                                        <div>
+                                            <strong>在线支付</strong>
+                                            <small>多种支付方式</small>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.dewa.gov.ae/en/consumer/billing/installment-plans" class="service-item" target="_blank">
+                                        <i class="bi bi-calendar-check"></i>
+                                        <div>
+                                            <strong>分期付款</strong>
+                                            <small>账单分期服务</small>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 智能服务 -->
+                        <div class="col-md-6">
+                            <div class="service-category">
+                                <h6 class="category-title"><i class="bi bi-cpu"></i> 智能服务</h6>
+                                <div class="category-content">
+                                    <a href="https://www.dewa.gov.ae/en/consumer/smart-living/smart-meters" class="service-item" target="_blank">
+                                        <i class="bi bi-speedometer"></i>
+                                        <div>
+                                            <strong>智能电表</strong>
+                                            <small>实时用量监控</small>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.dewa.gov.ae/en/consumer/smart-living" class="service-item" target="_blank">
+                                        <i class="bi bi-house-heart"></i>
+                                        <div>
+                                            <strong>智慧家居</strong>
+                                            <small>家居智能化</small>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.dewa.gov.ae/en/consumer/smart-living/consumption-monitoring" class="service-item" target="_blank">
+                                        <i class="bi bi-graph-up"></i>
+                                        <div>
+                                            <strong>用量分析</strong>
+                                            <small>用水用电分析</small>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 绿色能源 -->
+                        <div class="col-md-6">
+                            <div class="service-category">
+                                <h6 class="category-title"><i class="bi bi-leaf"></i> 绿色能源</h6>
+                                <div class="category-content">
+                                    <a href="https://www.dewa.gov.ae/en/consumer/solar" class="service-item" target="_blank">
+                                        <i class="bi bi-sun"></i>
+                                        <div>
+                                            <strong>太阳能服务</strong>
+                                            <small>太阳能安装</small>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.dewa.gov.ae/en/consumer/ev-green-charger" class="service-item" target="_blank">
+                                        <i class="bi bi-ev-station"></i>
+                                        <div>
+                                            <strong>电动车充电</strong>
+                                            <small>充电站导航</small>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.dewa.gov.ae/en/about-us/sustainability" class="service-item" target="_blank">
+                                        <i class="bi bi-tree"></i>
+                                        <div>
+                                            <strong>环保计划</strong>
+                                            <small>绿色倡议</small>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 特殊关怀 -->
+                        <div class="col-md-6">
+                            <div class="service-category">
+                                <h6 class="category-title"><i class="bi bi-heart"></i> 特殊关怀</h6>
+                                <div class="category-content">
+                                    <a href="https://www.dewa.gov.ae/en/consumer/special-services" class="service-item" target="_blank">
+                                        <i class="bi bi-person-heart"></i>
+                                        <div>
+                                            <strong>长者服务</strong>
+                                            <small>老年人绿色通道</small>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.dewa.gov.ae/en/consumer/special-services/people-of-determination" class="service-item" target="_blank">
+                                        <i class="bi bi-universal-access"></i>
+                                        <div>
+                                            <strong>无障碍服务</strong>
+                                            <small>特殊人群服务</small>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.dewa.gov.ae/en/consumer/billing/support-programmes" class="service-item" target="_blank">
+                                        <i class="bi bi-life-preserver"></i>
+                                        <div>
+                                            <strong>援助计划</strong>
+                                            <small>困难家庭补助</small>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 紧急服务 -->
+                        <div class="col-md-6">
+                            <div class="service-category">
+                                <h6 class="category-title"><i class="bi bi-exclamation-triangle"></i> 紧急服务</h6>
+                                <div class="category-content">
+                                    <a href="https://www.dewa.gov.ae/en/consumer/emergency-numbers" class="service-item" target="_blank">
+                                        <i class="bi bi-telephone"></i>
+                                        <div>
+                                            <strong>紧急热线</strong>
+                                            <small>24小时服务</small>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.dewa.gov.ae/en/consumer/services-and-maintenance/report-issue" class="service-item" target="_blank">
+                                        <i class="bi bi-lightning"></i>
+                                        <div>
+                                            <strong>故障报修</strong>
+                                            <small>停电停水报修</small>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.dewa.gov.ae/en/consumer/health-safety" class="service-item" target="_blank">
+                                        <i class="bi bi-shield-check"></i>
+                                        <div>
+                                            <strong>安全指南</strong>
+                                            <small>用电用水安全</small>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 商业服务 -->
+                        <div class="col-md-6">
+                            <div class="service-category">
+                                <h6 class="category-title"><i class="bi bi-building"></i> 商业服务</h6>
+                                <div class="category-content">
+                                    <a href="https://www.dewa.gov.ae/en/business" class="service-item" target="_blank">
+                                        <i class="bi bi-shop"></i>
+                                        <div>
+                                            <strong>商业用户</strong>
+                                            <small>企业专属服务</small>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.dewa.gov.ae/en/business/industrial-customers" class="service-item" target="_blank">
+                                        <i class="bi bi-factory"></i>
+                                        <div>
+                                            <strong>工业用户</strong>
+                                            <small>工业用电服务</small>
+                                        </div>
+                                    </a>
+                                    <a href="https://www.dewa.gov.ae/en/consultants-and-contractors" class="service-item" target="_blank">
+                                        <i class="bi bi-people"></i>
+                                        <div>
+                                            <strong>咨询服务</strong>
+                                            <small>专业技术咨询</small>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- 国际化相关JS -->
+    <script src="assets/js/i18n.js"></script>
+
+    <script>
+        // 初始化AOS动画
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+    </script>
+</body>
+
+</html>
