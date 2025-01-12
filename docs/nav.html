@@ -31,26 +31,130 @@
     <style>
         /* Hero 相关样式 */
         .hero {
+            min-height: 100vh;
+            padding: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%), url("../assets/img/hero-bg.jpg") center center;
+            background-size: cover;
+            overflow-y: auto;
+        }
+
+        .hero .container {
+            padding-top: 120px;
+            padding-bottom: 60px;
+        }
+
+        /* Hero 标题区域样式优化 */
+        .hero-header {
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0;
+            margin-bottom: 20px; /* 确保与导航内容有适当间距 */
+        }
+
+        .hero-content {
             width: 100%;
             position: relative;
-            background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url("../assets/img/hero-bg.jpg") center center;
-            background-size: cover;
-            padding: 60px 0;
-            min-height: 100vh;
         }
 
-        .hero h1 {
-            margin-bottom: 20px;
-            font-size: 48px;
+        .hero-title {
+            font-size: 3.5rem;
             font-weight: 700;
             color: #fff;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .hero .lead {
+        .hero-title .highlight {
+            color: #4CAF50;
+            position: relative;
+            display: inline-block;
+            padding: 0 10px;
+        }
+
+        .hero-subtitle {
             font-size: 1.25rem;
-            font-weight: 300;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.9);
+            color: #fff;
+            letter-spacing: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+            margin: 1.5rem 0;
+        }
+
+        .hero-actions {
+            margin-top: 2rem;
+        }
+
+        .btn-bookmark {
+            padding: 12px 30px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-bookmark:hover {
+            background: rgba(76, 175, 80, 0.2);
+            border-color: #4CAF50;
+            transform: translateY(-2px);
+        }
+
+        /* 导航容器样式 */
+        .navigation-container {
+            height: auto;
+            overflow: visible;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero .container {
+                padding-top: 100px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+                padding: 12px 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero .container {
+                padding-top: 80px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+                padding: 10px 15px;
+            }
+            
+            .btn-bookmark {
+                padding: 10px 25px;
+            }
         }
 
         /* 导航卡片样式 */
@@ -60,13 +164,15 @@
             border-radius: 15px;
             padding: 25px;
             transition: all 0.3s ease;
-            height: 100%;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 360px;
+            display: flex;
+            flex-direction: column;
         }
 
         .navigation-card:hover {
-            transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
@@ -79,6 +185,7 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
+            flex-shrink: 0;
         }
 
         .card-icon i {
@@ -90,16 +197,40 @@
             color: #fff;
             font-size: 20px;
             margin-bottom: 15px;
+            flex-shrink: 0;
         }
 
         .nav-list {
             list-style: none;
             padding: 0;
             margin: 0;
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .nav-list::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .nav-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .nav-list::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+        }
+
+        .nav-list::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(255, 255, 255, 0.3);
         }
 
         .nav-list li {
-            margin-bottom: 10px;
+            height: 40px;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
         }
 
         .nav-list a {
@@ -108,11 +239,17 @@
             display: flex;
             align-items: center;
             transition: all 0.3s ease;
+            padding: 8px 0;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .nav-list a i {
             margin-right: 8px;
             font-size: 14px;
+            flex-shrink: 0;
         }
 
         .nav-list a:hover {
@@ -280,85 +417,232 @@
             margin-left: 8px;
         }
 
-        /* 模态框样式 */
+        /* 模态框样式优化 */
         .modal-content {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             border: none;
-            border-radius: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
         .modal-header {
-            padding: 20px 30px;
-        }
-
-        .modal-body {
-            padding: 0 30px 30px;
+            padding: 20px 25px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .modal-title {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 600;
-            color: #333;
+            color: #2c3e50;
         }
 
-        /* 服务类别样式 */
-        .service-category {
-            background: #fff;
-            border-radius: 15px;
-            padding: 20px;
-            height: 100%;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        .modal-body {
+            padding: 25px;
         }
 
-        .category-title {
-            color: #333;
-            font-weight: 600;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .category-title i {
-            color: #4CAF50;
-        }
-
-        /* 服务项目样式 */
+        /* 服务项目样式优化 */
         .service-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-            padding: 12px;
-            border-radius: 10px;
-            color: #666;
-            text-decoration: none;
+            padding: 16px;
+            border-radius: 12px;
+            background: #fff;
             transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            margin-bottom: 12px;
         }
 
         .service-item:hover {
+            background: #f8f9fa;
+            border-color: rgba(76, 175, 80, 0.3);
+            transform: translateX(5px);
+        }
+
+        .service-icon {
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .website-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .service-content {
+            flex: 1;
+            min-width: 0;
+            margin-right: 16px;
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .service-header strong {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #2c3e50;
+            margin-right: 12px;
+        }
+
+        .service-content small {
+            font-size: 0.875rem;
+            color: #6c757d;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;  /* 限制为两行 */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.4;
+            max-height: 2.8em;  /* 2倍行高，确保两行显示 */
+            text-overflow: ellipsis;
+        }
+
+        .rating {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
             background: rgba(76, 175, 80, 0.1);
             color: #4CAF50;
-        }
-
-        .service-item i {
-            font-size: 1.5rem;
-            color: #4CAF50;
-        }
-
-        .service-item div {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .service-item strong {
-            font-size: 0.95rem;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
             font-weight: 500;
         }
 
-        .service-item small {
-            font-size: 0.8rem;
-            opacity: 0.7;
+        .rating i {
+            font-size: 0.75rem;
+        }
+
+        .service-action {
+            color: #adb5bd;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover .service-action {
+            opacity: 1;
+            color: #4CAF50;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .modal-body {
+                padding: 20px;
+            }
+            
+            .service-item {
+                padding: 12px;
+            }
+            
+            .website-logo {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .service-header strong {
+                font-size: 0.95rem;
+            }
+            
+            .service-content small {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* 加载状态样式 */
+        .loading-spinner {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        .alert {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: none;
+            color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .alert-danger {
+            background: rgba(220, 53, 69, 0.1);
+            border: 1px solid rgba(220, 53, 69, 0.2);
+        }
+
+        .alert-warning {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.2);
+        }
+
+        /* 添加固定高度相关样式 */
+        .hero {
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .hero .container {
+            display: flex;
+            flex-direction: column;
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .hero-header {
+            height: 300px; /* 根据实际内容调整 */
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .navigation-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 0;
+            /* 自定义滚动条样式 */
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+        }
+
+        /* Webkit浏览器的滚动条样式 */
+        .navigation-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .navigation-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .navigation-container::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+        }
+
+        .navigation-container::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* 添加导航区域的样式 */
+        .navigation-section {
+            padding-top: 60px;
+            padding-bottom: 60px; /* 添加底部间距 */
         }
     </style>
 </head>
@@ -570,370 +854,36 @@
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-4 text-white mb-4" data-aos="fade-up">迪拜综合服务导航平台</h1>
-                    <p class="lead text-white-50 mb-5" data-aos="fade-up" data-aos-delay="100">
-                        为访客、投资者和居民提供迪拜政府、商务、生活等全方位信息服务
-                    </p>
+            <!-- 现代化标题区域 -->
+            <div class="hero-header">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="hero-content">
+                            <h1 class="hero-title" data-aos="fade-up">
+                                迪拜<span class="highlight">综合导航</span>
+                            </h1>
+                            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
+                                政府服务 · 商务信息 · 生活指南
+                            </p>
+                            <div class="hero-actions" data-aos="fade-up" data-aos-delay="200">
+                                <button class="btn-bookmark" onclick="addToBookmarks()">
+                                    <i class="bi bi-bookmark-plus"></i>
+                                    <span>收藏本页</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- 主要导航卡片 -->
-            <div class="row g-4 mt-2">
-                <!-- 政府服务 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up">
-                    <div class="navigation-card">
-                        <div class="card-icon">
-                            <i class="bi bi-building"></i>
-                        </div>
-                        <h3>政府服务</h3>
-                        <ul class="nav-list">
-                            <li><a href="https://www.dubai.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 迪拜政府门户</a></li>
-                            <li><a href="https://www.gdrfad.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 签证服务</a></li>
-                            <li><a href="https://www.dewa.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 水电服务</a></li>
-                            <li><a href="https://www.dm.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 市政服务</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 投资服务 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="navigation-card">
-                        <div class="card-icon">
-                            <i class="bi bi-graph-up-arrow"></i>
-                        </div>
-                        <h3>投资服务</h3>
-                        <ul class="nav-list">
-                            <li><a href="https://invest.dubai.ae" target="_blank"><i class="bi bi-chevron-right"></i> 投资指南</a></li>
-                            <li><a href="https://ded.ae" target="_blank"><i class="bi bi-chevron-right"></i> 公司注册</a></li>
-                            <li><a href="https://freezones.ae" target="_blank"><i class="bi bi-chevron-right"></i> 自贸区服务</a></li>
-                            <li><a href="https://dubailand.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 房产服务</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 商务服务 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="navigation-card">
-                        <div class="card-icon">
-                            <i class="bi bi-briefcase"></i>
-                        </div>
-                        <h3>商务服务</h3>
-                        <ul class="nav-list">
-                            <li><a href="business-consulting.html"><i class="bi bi-chevron-right"></i> 商业咨询</a></li>
-                            <li><a href="bank-account.html"><i class="bi bi-chevron-right"></i> 银行开户</a></li>
-                            <li><a href="trade-services.html"><i class="bi bi-chevron-right"></i> 贸易服务</a></li>
-                            <li><a href="market-analysis.html"><i class="bi bi-chevron-right"></i> 市场分析</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 生活服务 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="navigation-card">
-                        <div class="card-icon">
-                            <i class="bi bi-house-heart"></i>
-                        </div>
-                        <h3>生活服务</h3>
-                        <ul class="nav-list">
-                            <li><a href="https://www.rta.ae" target="_blank"><i class="bi bi-chevron-right"></i> 交通出行</a></li>
-                            <li><a href="https://www.dha.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 医疗服务</a></li>
-                            <li><a href="https://www.khda.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 教育服务</a></li>
-                            <li><a href="https://dxbpp.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 警察服务</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 旅游观光 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="navigation-card">
-                        <div class="card-icon">
-                            <i class="bi bi-airplane"></i>
-                        </div>
-                        <h3>旅游观光</h3>
-                        <ul class="nav-list">
-                            <li><a href="https://www.visitdubai.com" target="_blank"><i class="bi bi-chevron-right"></i> 迪拜旅游</a></li>
-                            <li><a href="https://www.dubaiairports.ae" target="_blank"><i class="bi bi-chevron-right"></i> 机场服务</a></li>
-                            <li><a href="https://www.emirates.com" target="_blank"><i class="bi bi-chevron-right"></i> 航空服务</a></li>
-                            <li><a href="https://www.dtcm.gov.ae" target="_blank"><i class="bi bi-chevron-right"></i> 旅游局</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 商业机遇 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="navigation-card">
-                        <div class="card-icon">
-                            <i class="bi bi-lightbulb"></i>
-                        </div>
-                        <h3>商业机遇</h3>
-                        <ul class="nav-list">
-                            <li><a href="https://www.expo2020dubai.com" target="_blank"><i class="bi bi-chevron-right"></i> 世博会</a></li>
-                            <li><a href="https://dubaiexportal.ae" target="_blank"><i class="bi bi-chevron-right"></i> 出口门户</a></li>
-                            <li><a href="https://www.dmcc.ae" target="_blank"><i class="bi bi-chevron-right"></i> 商品交易</a></li>
-                            <li><a href="https://www.dafz.ae" target="_blank"><i class="bi bi-chevron-right"></i> 自贸区</a></li>
-                        </ul>
-                    </div>
+            <!-- 导航卡片容器 -->
+            <div class="navigation-section">
+                <div class="row g-4" id="navigationCards">
+                    <!-- 动态生成的导航卡片将显示在这里 -->
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- 添加模态框 -->
-    <div class="modal fade" id="publicServicesModal" tabindex="-1">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title">迪拜水电局(DEWA)服务导航</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row g-4">
-                        <!-- 新用户服务 -->
-                        <div class="col-md-6">
-                            <div class="service-category">
-                                <h6 class="category-title"><i class="bi bi-person-plus"></i> 新用户服务</h6>
-                                <div class="category-content">
-                                    <a href="https://www.dewa.gov.ae/en/consumer/get-started/activate-deactivate" class="service-item" target="_blank">
-                                        <i class="bi bi-plug"></i>
-                                        <div>
-                                            <strong>新用户开通</strong>
-                                            <small>首次申请水电服务</small>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.dewa.gov.ae/en/consumer/billing/security-deposit" class="service-item" target="_blank">
-                                        <i class="bi bi-safe"></i>
-                                        <div>
-                                            <strong>押金缴纳</strong>
-                                            <small>缴纳服务押金</small>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.dewa.gov.ae/en/consumer/get-started" class="service-item" target="_blank">
-                                        <i class="bi bi-journal-text"></i>
-                                        <div>
-                                            <strong>开户指南</strong>
-                                            <small>新用户开户流程</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 日常服务 -->
-                        <div class="col-md-6">
-                            <div class="service-category">
-                                <h6 class="category-title"><i class="bi bi-house-gear"></i> 日常服务</h6>
-                                <div class="category-content">
-                                    <a href="https://www.dewa.gov.ae/en/consumer/get-started/move-in" class="service-item" target="_blank">
-                                        <i class="bi bi-box-arrow-in-right"></i>
-                                        <div>
-                                            <strong>入住过户</strong>
-                                            <small>租房水电过户</small>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.dewa.gov.ae/en/consumer/get-started/move-out" class="service-item" target="_blank">
-                                        <i class="bi bi-box-arrow-right"></i>
-                                        <div>
-                                            <strong>迁出结算</strong>
-                                            <small>终止水电服务</small>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.dewa.gov.ae/en/consumer/services-and-maintenance" class="service-item" target="_blank">
-                                        <i class="bi bi-tools"></i>
-                                        <div>
-                                            <strong>维修服务</strong>
-                                            <small>设备维修保养</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 账单中心 -->
-                        <div class="col-md-6">
-                            <div class="service-category">
-                                <h6 class="category-title"><i class="bi bi-receipt"></i> 账单中心</h6>
-                                <div class="category-content">
-                                    <a href="https://www.dewa.gov.ae/en/consumer/billing/my-bills" class="service-item" target="_blank">
-                                        <i class="bi bi-file-text"></i>
-                                        <div>
-                                            <strong>账单查询</strong>
-                                            <small>查看历史账单</small>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.dewa.gov.ae/en/consumer/billing/payment-methods" class="service-item" target="_blank">
-                                        <i class="bi bi-credit-card"></i>
-                                        <div>
-                                            <strong>在线支付</strong>
-                                            <small>多种支付方式</small>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.dewa.gov.ae/en/consumer/billing/installment-plans" class="service-item" target="_blank">
-                                        <i class="bi bi-calendar-check"></i>
-                                        <div>
-                                            <strong>分期付款</strong>
-                                            <small>账单分期服务</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 智能服务 -->
-                        <div class="col-md-6">
-                            <div class="service-category">
-                                <h6 class="category-title"><i class="bi bi-cpu"></i> 智能服务</h6>
-                                <div class="category-content">
-                                    <a href="https://www.dewa.gov.ae/en/consumer/smart-living/smart-meters" class="service-item" target="_blank">
-                                        <i class="bi bi-speedometer"></i>
-                                        <div>
-                                            <strong>智能电表</strong>
-                                            <small>实时用量监控</small>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.dewa.gov.ae/en/consumer/smart-living" class="service-item" target="_blank">
-                                        <i class="bi bi-house-heart"></i>
-                                        <div>
-                                            <strong>智慧家居</strong>
-                                            <small>家居智能化</small>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.dewa.gov.ae/en/consumer/smart-living/consumption-monitoring" class="service-item" target="_blank">
-                                        <i class="bi bi-graph-up"></i>
-                                        <div>
-                                            <strong>用量分析</strong>
-                                            <small>用水用电分析</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 绿色能源 -->
-                        <div class="col-md-6">
-                            <div class="service-category">
-                                <h6 class="category-title"><i class="bi bi-leaf"></i> 绿色能源</h6>
-                                <div class="category-content">
-                                    <a href="https://www.dewa.gov.ae/en/consumer/solar" class="service-item" target="_blank">
-                                        <i class="bi bi-sun"></i>
-                                        <div>
-                                            <strong>太阳能服务</strong>
-                                            <small>太阳能安装</small>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.dewa.gov.ae/en/consumer/ev-green-charger" class="service-item" target="_blank">
-                                        <i class="bi bi-ev-station"></i>
-                                        <div>
-                                            <strong>电动车充电</strong>
-                                            <small>充电站导航</small>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.dewa.gov.ae/en/about-us/sustainability" class="service-item" target="_blank">
-                                        <i class="bi bi-tree"></i>
-                                        <div>
-                                            <strong>环保计划</strong>
-                                            <small>绿色倡议</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 特殊关怀 -->
-                        <div class="col-md-6">
-                            <div class="service-category">
-                                <h6 class="category-title"><i class="bi bi-heart"></i> 特殊关怀</h6>
-                                <div class="category-content">
-                                    <a href="https://www.dewa.gov.ae/en/consumer/special-services" class="service-item" target="_blank">
-                                        <i class="bi bi-person-heart"></i>
-                                        <div>
-                                            <strong>长者服务</strong>
-                                            <small>老年人绿色通道</small>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.dewa.gov.ae/en/consumer/special-services/people-of-determination" class="service-item" target="_blank">
-                                        <i class="bi bi-universal-access"></i>
-                                        <div>
-                                            <strong>无障碍服务</strong>
-                                            <small>特殊人群服务</small>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.dewa.gov.ae/en/consumer/billing/support-programmes" class="service-item" target="_blank">
-                                        <i class="bi bi-life-preserver"></i>
-                                        <div>
-                                            <strong>援助计划</strong>
-                                            <small>困难家庭补助</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 紧急服务 -->
-                        <div class="col-md-6">
-                            <div class="service-category">
-                                <h6 class="category-title"><i class="bi bi-exclamation-triangle"></i> 紧急服务</h6>
-                                <div class="category-content">
-                                    <a href="https://www.dewa.gov.ae/en/consumer/emergency-numbers" class="service-item" target="_blank">
-                                        <i class="bi bi-telephone"></i>
-                                        <div>
-                                            <strong>紧急热线</strong>
-                                            <small>24小时服务</small>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.dewa.gov.ae/en/consumer/services-and-maintenance/report-issue" class="service-item" target="_blank">
-                                        <i class="bi bi-lightning"></i>
-                                        <div>
-                                            <strong>故障报修</strong>
-                                            <small>停电停水报修</small>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.dewa.gov.ae/en/consumer/health-safety" class="service-item" target="_blank">
-                                        <i class="bi bi-shield-check"></i>
-                                        <div>
-                                            <strong>安全指南</strong>
-                                            <small>用电用水安全</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 商业服务 -->
-                        <div class="col-md-6">
-                            <div class="service-category">
-                                <h6 class="category-title"><i class="bi bi-building"></i> 商业服务</h6>
-                                <div class="category-content">
-                                    <a href="https://www.dewa.gov.ae/en/business" class="service-item" target="_blank">
-                                        <i class="bi bi-shop"></i>
-                                        <div>
-                                            <strong>商业用户</strong>
-                                            <small>企业专属服务</small>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.dewa.gov.ae/en/business/industrial-customers" class="service-item" target="_blank">
-                                        <i class="bi bi-factory"></i>
-                                        <div>
-                                            <strong>工业用户</strong>
-                                            <small>工业用电服务</small>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.dewa.gov.ae/en/consultants-and-contractors" class="service-item" target="_blank">
-                                        <i class="bi bi-people"></i>
-                                        <div>
-                                            <strong>咨询服务</strong>
-                                            <small>专业技术咨询</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -955,6 +905,173 @@
             once: true,
             mirror: false
         });
+    </script>
+
+    <!-- 添加收藏功能的JavaScript -->
+    <script>
+    function addToBookmarks() {
+        if (window.sidebar && window.sidebar.addPanel) { // Firefox
+            window.sidebar.addPanel(document.title, window.location.href, '');
+        } else if (window.external && ('AddFavorite' in window.external)) { // IE
+            window.external.AddFavorite(window.location.href, document.title);
+        } else { // Chrome, Safari, etc.
+            alert('请按 ' + (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Command/Cmd' : 'CTRL') + ' + D 键添加本页到收藏夹。');
+        }
+    }
+    </script>
+
+    <!-- 添加JavaScript代码 -->
+    <script>
+    // 获取网站数据并生成导航卡片
+    async function fetchAndDisplayWebsites() {
+        const container = document.getElementById('navigationCards');
+        
+        try {
+            const response = await fetch('http://127.0.0.1:8090/manage/base/website-list/list?countryCode=AE');
+            const result = await response.json();
+            
+            if (result.success) {
+                // 清空容器
+                container.innerHTML = '';
+                
+                // 按category分组数据
+                const groupedData = groupByCategory(result.data);
+                // 生成导航卡片，不设置滚动区域
+                displayNavigationCards(groupedData);
+            } else {
+                container.innerHTML = `
+                    <div class="col-12 text-center">
+                        <div class="alert alert-warning" role="alert">
+                            <i class="bi bi-exclamation-triangle me-2"></i>
+                            数据加载失败：${result.message}
+                        </div>
+                    </div>
+                `;
+            }
+        } catch (error) {
+            console.error('获取数据失败:', error);
+            container.innerHTML = `
+                <div class="col-12 text-center">
+                    <div class="alert alert-danger" role="alert">
+                        <i class="bi bi-exclamation-circle me-2"></i>
+                        数据加载出错，请稍后重试
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    // 按category对数据进行分组
+    function groupByCategory(data) {
+        return data.reduce((acc, item) => {
+            // 如果该category不存在，创建新数组
+            if (!acc[item.category]) {
+                acc[item.category] = {};
+            }
+            // 如果该subCategory不存在，创建新数组
+            if (!acc[item.category][item.subCategory]) {
+                acc[item.category][item.subCategory] = [];
+            }
+            // 将网站添加到对应的subCategory
+            acc[item.category][item.subCategory].push(item);
+            return acc;
+        }, {});
+    }
+
+    // 生成导航卡片HTML
+    function displayNavigationCards(groupedData) {
+        const container = document.getElementById('navigationCards');
+        container.innerHTML = '';
+
+        Object.entries(groupedData).forEach(([category, subCategories], index) => {
+            const cardHtml = `
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${index * 100}">
+                    <div class="navigation-card">
+                        <div class="card-icon">
+                            ${getCategoryIcon(category)}
+                        </div>
+                        <h3>${category}</h3>
+                        <ul class="nav-list">
+                            ${Object.entries(subCategories).map(([subCategory, websites]) => `
+                                <li>
+                                    <a href="#" onclick="showWebsitesModal('${category}', '${subCategory}', ${JSON.stringify(websites).replace(/"/g, '&quot;')})">
+                                        <i class="bi bi-chevron-right"></i>
+                                        <span>${subCategory}</span>
+                                    </a>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+            container.insertAdjacentHTML('beforeend', cardHtml);
+        });
+    }
+
+    // 根据category返回对应的图标
+    function getCategoryIcon(category) {
+        const icons = {
+            '交通': '<i class="bi bi-car-front"></i>',
+            '购物': '<i class="bi bi-cart"></i>',
+            '生活': '<i class="bi bi-house-heart"></i>',
+            '行政服务': '<i class="bi bi-building"></i>',
+            // 可以继续添加其他类别的图标
+        };
+        return icons[category] || '<i class="bi bi-grid"></i>';
+    }
+
+    // 页面加载时获取数据
+    document.addEventListener('DOMContentLoaded', fetchAndDisplayWebsites);
+
+    // 添加模态框HTML
+    document.body.insertAdjacentHTML('beforeend', `
+        <div class="modal fade" id="websitesModal" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row g-4" id="modalWebsites"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `);
+
+    // 显示网站模态框
+    function showWebsitesModal(category, subCategory, websites) {
+        const modal = new bootstrap.Modal(document.getElementById('websitesModal'));
+        const modalTitle = document.querySelector('#websitesModal .modal-title');
+        const modalBody = document.getElementById('modalWebsites');
+
+        modalTitle.textContent = `${category} - ${subCategory}`;
+        modalBody.innerHTML = websites.map(website => `
+            <div class="col-md-6">
+                <div class="service-item" onclick="window.open('${website.url}', '_blank')">
+                    <div class="service-icon">
+                        ${website.logoUrl ? 
+                            `<img src="${website.logoUrl}" alt="${website.name}" class="website-logo">` :
+                            `<i class="bi bi-link-45deg text-success fs-3"></i>`
+                        }
+                    </div>
+                    <div class="service-content">
+                        <div class="d-flex align-items-center">
+                            <strong>${website.name}</strong>
+                            ${website.userRating ? 
+                                `<span class="rating">${website.userRating.toFixed(1)}</span>` : 
+                                ''
+                            }
+                        </div>
+                        <small title="${website.description}">${website.description}</small>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        modal.show();
+    }
     </script>
 </body>
 
