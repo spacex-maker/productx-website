@@ -1486,7 +1486,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     let currentPage = 1;
     const pageSize = 12;
-    const baseUrl = 'http://127.0.0.1:8090';
+    const baseUrl = 'https://protx.cn';
 
     // 加载商户列表
     function loadMerchants(page = 1) {
@@ -1885,7 +1885,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function fetchMerchantDetail(id) {
         console.log('开始获取商户详情, ID:', id);
         
-        fetch(`http://127.0.0.1:8090/manage/base/repair-service-merchants/detail-for-main-page?id=${id}`)
+        fetch(`https://protx.cn/manage/base/repair-service-merchants/detail-for-main-page?id=${id}`)
             .then(response => response.json())
             .then(result => {
                 console.log('获取到的数据:', result);
